@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iL4-9M-XMt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -16,39 +19,261 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPX-ld-mcZ">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Route Buddy" id="3oJ-r8-Vcr"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Home" id="ijB-rp-B77">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="cqF-6b-RMz" userLabel="Settings Button">
+                            <connections>
+                                <segue destination="jbt-4W-W9O" kind="show" id="gSN-Zt-Qq3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1377" y="418"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="KqM-7V-FNh">
+        <!--Settings-->
+        <scene sceneID="Dyi-yR-UI3">
             <objects>
-                <viewController id="zDa-Y2-YIL" sceneMemberID="viewController">
+                <viewController id="jbt-4W-W9O" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jV0-FF-o40"/>
-                        <viewControllerLayoutGuide type="bottom" id="5My-Sv-vm8"/>
+                        <viewControllerLayoutGuide type="top" id="byg-FU-als"/>
+                        <viewControllerLayoutGuide type="bottom" id="VxH-IN-YA0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="S3L-Wk-YDH">
+                    <view key="view" contentMode="scaleToFill" id="OJv-LF-nCv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-lS-4Yn" userLabel="Button Container">
+                                <rect key="frame" x="90" y="160" width="420" height="280"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDj-Eg-omf" userLabel="Emergency Contact Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="420" height="105"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vDj-Eg-omf" secondAttribute="height" multiplier="4:1" id="bQC-Np-ZzC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Emergency Contacts">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="zd7-Eq-TpD" kind="show" id="kBM-Nw-s8p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxf-nT-PC7" userLabel="Destinations Button">
+                                        <rect key="frame" x="0.0" y="175" width="420" height="105"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Pxf-nT-PC7" secondAttribute="height" multiplier="4:1" id="veV-K6-Bdr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Saved Destinations">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pxf-nT-PC7" secondAttribute="trailing" id="8fI-jS-yc8"/>
+                                    <constraint firstItem="Pxf-nT-PC7" firstAttribute="width" secondItem="Omc-lS-4Yn" secondAttribute="width" id="9q8-rZ-eMn"/>
+                                    <constraint firstItem="Pxf-nT-PC7" firstAttribute="leading" secondItem="Omc-lS-4Yn" secondAttribute="leading" id="ANT-45-9f4"/>
+                                    <constraint firstItem="vDj-Eg-omf" firstAttribute="top" secondItem="Omc-lS-4Yn" secondAttribute="top" id="KQF-4B-h3i"/>
+                                    <constraint firstItem="vDj-Eg-omf" firstAttribute="width" secondItem="Omc-lS-4Yn" secondAttribute="width" id="OvV-lx-i2X"/>
+                                    <constraint firstItem="vDj-Eg-omf" firstAttribute="leading" secondItem="Omc-lS-4Yn" secondAttribute="leading" id="PWU-0J-OCm"/>
+                                    <constraint firstAttribute="width" secondItem="Omc-lS-4Yn" secondAttribute="height" multiplier="1.5:1" id="Pu1-jl-CHT"/>
+                                    <constraint firstItem="Pxf-nT-PC7" firstAttribute="width" secondItem="Pxf-nT-PC7" secondAttribute="height" multiplier="4:1" id="Qwx-Ce-COW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pxf-nT-PC7" secondAttribute="bottom" id="mRQ-fi-air"/>
+                                    <constraint firstAttribute="trailing" secondItem="vDj-Eg-omf" secondAttribute="trailing" id="xoH-Gj-TPm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Omc-lS-4Yn" firstAttribute="centerY" secondItem="OJv-LF-nCv" secondAttribute="centerY" id="OBj-hk-v46"/>
+                            <constraint firstItem="Omc-lS-4Yn" firstAttribute="centerX" secondItem="OJv-LF-nCv" secondAttribute="centerX" id="YVc-Fr-bvZ"/>
+                            <constraint firstItem="Omc-lS-4Yn" firstAttribute="width" secondItem="OJv-LF-nCv" secondAttribute="width" multiplier="0.7" id="uHs-wq-rgY"/>
+                        </constraints>
                     </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Settings" id="ngu-fE-HBB">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="x2s-1d-x7c"/>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xh5-sb-rFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSg-x7-UyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="490"/>
+            <point key="canvasLocation" x="2111" y="418"/>
+        </scene>
+        <!--Emergency Contacts-->
+        <scene sceneID="Dy4-VE-4H4">
+            <objects>
+                <viewController id="zd7-Eq-TpD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dUf-sY-dyt"/>
+                        <viewControllerLayoutGuide type="bottom" id="okM-31-H0N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PIU-tg-a2n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q6L-tq-IlP">
+                                <rect key="frame" x="0.0" y="72" width="600" height="484"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="q6L-tq-IlP" secondAttribute="trailing" id="RYV-Ip-vq8"/>
+                            <constraint firstItem="q6L-tq-IlP" firstAttribute="leading" secondItem="PIU-tg-a2n" secondAttribute="leading" id="dyO-my-9Iu"/>
+                            <constraint firstItem="okM-31-H0N" firstAttribute="top" secondItem="q6L-tq-IlP" secondAttribute="bottom" id="heN-p7-3Mm"/>
+                            <constraint firstItem="q6L-tq-IlP" firstAttribute="top" secondItem="dUf-sY-dyt" secondAttribute="bottom" constant="8" id="q6d-Lo-6xy"/>
+                            <constraint firstItem="q6L-tq-IlP" firstAttribute="leading" secondItem="PIU-tg-a2n" secondAttribute="leading" id="rI8-XK-vqY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Emergency Contacts" id="KKH-nV-5O2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="EKC-ef-8gF"/>
+                        <barButtonItem key="rightBarButtonItem" title="+ Add" id="A1Z-UF-sbQ" userLabel="Add Button">
+                            <connections>
+                                <segue destination="djm-H9-vHG" kind="show" id="3E7-C3-K8A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7a-BR-Qf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2829" y="-78"/>
+        </scene>
+        <!--Add Emergency Contact-->
+        <scene sceneID="IoA-1A-N4B">
+            <objects>
+                <viewController title="Add Emergency Contact" id="djm-H9-vHG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q6G-Rc-SFE"/>
+                        <viewControllerLayoutGuide type="bottom" id="b8J-Ur-DM5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RWF-27-XHI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9X-yV-yVp">
+                                <rect key="frame" x="50" y="114" width="500" height="392"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3B-Vp-yIx" userLabel="Name Label">
+                                        <rect key="frame" x="0.0" y="8" width="492" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="29n-eP-4cw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Som-qg-Pdw" userLabel="Name Text Field">
+                                        <rect key="frame" x="0.0" y="48" width="500" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="6Sb-na-OtI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSF-JG-zqZ" userLabel="Phone Label">
+                                        <rect key="frame" x="0.0" y="98" width="500" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1hn-YT-uFV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H6O-a4-oOk">
+                                        <rect key="frame" x="0.0" y="138" width="500" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FPz-bv-lQ1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nU7-Cz-Wr5" userLabel="Add Button">
+                                        <rect key="frame" x="0.0" y="208" width="500" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qox-Ne-NUN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Add Emergency Contact">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nSF-JG-zqZ" firstAttribute="top" secondItem="Som-qg-Pdw" secondAttribute="bottom" constant="20" id="14N-P4-L49"/>
+                                    <constraint firstItem="nU7-Cz-Wr5" firstAttribute="top" secondItem="H6O-a4-oOk" secondAttribute="bottom" constant="40" id="9qm-wk-FUl"/>
+                                    <constraint firstAttribute="trailing" secondItem="nSF-JG-zqZ" secondAttribute="trailing" id="BNd-px-U7W"/>
+                                    <constraint firstAttribute="trailing" secondItem="Som-qg-Pdw" secondAttribute="trailing" id="E36-cG-O5U"/>
+                                    <constraint firstItem="H6O-a4-oOk" firstAttribute="top" secondItem="nSF-JG-zqZ" secondAttribute="bottom" constant="10" id="GcI-uW-eMj"/>
+                                    <constraint firstItem="nU7-Cz-Wr5" firstAttribute="leading" secondItem="o9X-yV-yVp" secondAttribute="leading" id="N2K-SD-zBr"/>
+                                    <constraint firstItem="O3B-Vp-yIx" firstAttribute="leading" secondItem="o9X-yV-yVp" secondAttribute="leading" id="TrY-GP-Kq9"/>
+                                    <constraint firstAttribute="trailing" secondItem="nU7-Cz-Wr5" secondAttribute="trailing" id="Vl6-o6-npC"/>
+                                    <constraint firstItem="nSF-JG-zqZ" firstAttribute="leading" secondItem="o9X-yV-yVp" secondAttribute="leading" id="Z5t-KY-CyC"/>
+                                    <constraint firstAttribute="trailing" secondItem="H6O-a4-oOk" secondAttribute="trailing" id="amU-KM-fW7"/>
+                                    <constraint firstItem="Som-qg-Pdw" firstAttribute="leading" secondItem="o9X-yV-yVp" secondAttribute="leading" id="bF4-Zs-lMo"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="O3B-Vp-yIx" secondAttribute="trailing" id="cDm-b3-m7l"/>
+                                    <constraint firstItem="O3B-Vp-yIx" firstAttribute="top" secondItem="o9X-yV-yVp" secondAttribute="topMargin" id="hXv-VO-X87"/>
+                                    <constraint firstItem="H6O-a4-oOk" firstAttribute="leading" secondItem="o9X-yV-yVp" secondAttribute="leading" id="qXG-1r-lGW"/>
+                                    <constraint firstItem="Som-qg-Pdw" firstAttribute="top" secondItem="O3B-Vp-yIx" secondAttribute="bottom" constant="10" id="xLk-l9-4PA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o9X-yV-yVp" firstAttribute="top" secondItem="Q6G-Rc-SFE" secondAttribute="bottom" constant="50" id="73w-Yn-eFU"/>
+                            <constraint firstAttribute="trailing" secondItem="o9X-yV-yVp" secondAttribute="trailing" constant="50" id="ZvR-aN-2Wb"/>
+                            <constraint firstItem="o9X-yV-yVp" firstAttribute="leading" secondItem="RWF-27-XHI" secondAttribute="leading" constant="50" id="iGL-lM-AwT"/>
+                            <constraint firstItem="b8J-Ur-DM5" firstAttribute="top" secondItem="o9X-yV-yVp" secondAttribute="bottom" constant="50" id="w6X-sn-gPd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Emergency Contact" id="SFn-AI-odC">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="0Xb-EN-Sud"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7h-uR-RWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3583" y="-78"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kB3-Qp-U5a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iL4-9M-XMt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3pS-MS-Z4I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="P42-ZU-eK5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YF9-wI-a2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="418"/>
         </scene>
     </scenes>
 </document>
