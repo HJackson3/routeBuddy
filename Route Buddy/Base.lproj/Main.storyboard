@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="2829" y="673"/>
         </scene>
-        <!--Add Destination-->
+        <!--Destination Form-->
         <scene sceneID="vlc-Hg-hbz">
             <objects>
-                <viewController id="3kT-So-eA1" sceneMemberID="viewController">
+                <viewController title="Destination Form" id="3kT-So-eA1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QNf-2c-uPp"/>
                         <viewControllerLayoutGuide type="bottom" id="0mB-wp-Sg2"/>
@@ -388,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="3583" y="673"/>
         </scene>
-        <!--Add Emergency Contact-->
+        <!--Emergency Contact Form-->
         <scene sceneID="IoA-1A-N4B">
             <objects>
-                <viewController title="Add Emergency Contact" id="djm-H9-vHG" sceneMemberID="viewController">
+                <viewController title="Emergency Contact Form" id="djm-H9-vHG" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q6G-Rc-SFE"/>
                         <viewControllerLayoutGuide type="bottom" id="b8J-Ur-DM5"/>

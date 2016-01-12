@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092CD0611C45343800C3354F /* EmergencyContactFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmergencyContactFormViewController.h; sourceTree = "<group>"; };
 		0984F32A1C43DFE200B3DB55 /* Route Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Route Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0984F32E1C43DFE200B3DB55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0984F3301C43DFE200B3DB55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 				0984F3411C43DFE200B3DB55 /* Info.plist */,
 				0984F3391C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld */,
 				0984F32D1C43DFE200B3DB55 /* Supporting Files */,
+				092CD0611C45343800C3354F /* EmergencyContactFormViewController.h */,
 			);
 			path = "Route Buddy";
 			sourceTree = "<group>";
@@ -413,15 +415,6 @@
 			buildConfigurations = (
 				0984F35E1C43DFE200B3DB55 /* Debug */,
 				0984F35F1C43DFE200B3DB55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0984F3601C43DFE200B3DB55 /* Build configuration list for PBXNativeTarget "Route BuddyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0984F3611C43DFE200B3DB55 /* Debug */,
-				0984F3621C43DFE200B3DB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
