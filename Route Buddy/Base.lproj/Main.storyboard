@@ -84,6 +84,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="qC1-Zc-emk" kind="show" id="25r-Xi-gp5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,6 +158,28 @@
             </objects>
             <point key="canvasLocation" x="2829" y="-78"/>
         </scene>
+        <!--Destinations-->
+        <scene sceneID="2KQ-Xg-UWg">
+            <objects>
+                <viewController id="qC1-Zc-emk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="83c-kd-hUn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z6Z-J2-6gJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xvi-Oa-4Pc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Destinations" id="Lkb-pT-dDz">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="tBi-Nd-gcF"/>
+                        <barButtonItem key="rightBarButtonItem" title="+ Add" id="LpC-RE-A2H" userLabel="Add Button"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbU-Oq-EvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2829" y="673"/>
+        </scene>
         <!--Add Emergency Contact-->
         <scene sceneID="IoA-1A-N4B">
             <objects>
@@ -176,7 +201,7 @@
                                             <constraint firstAttribute="height" constant="30" id="29n-eP-4cw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Som-qg-Pdw" userLabel="Name Text Field">
@@ -193,7 +218,7 @@
                                             <constraint firstAttribute="height" constant="30" id="1hn-YT-uFV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H6O-a4-oOk">

@@ -418,7 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Route Buddy/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,7 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Route Buddy/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,6 +504,7 @@
 				0984F35C1C43DFE200B3DB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0984F35D1C43DFE200B3DB55 /* Build configuration list for PBXNativeTarget "Route BuddyTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +513,7 @@
 				0984F35F1C43DFE200B3DB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0984F3601C43DFE200B3DB55 /* Build configuration list for PBXNativeTarget "Route BuddyUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +522,7 @@
 				0984F3621C43DFE200B3DB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
