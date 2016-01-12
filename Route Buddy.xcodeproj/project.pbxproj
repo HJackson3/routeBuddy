@@ -13,20 +13,11 @@
 		0984F3381C43DFE200B3DB55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0984F3361C43DFE200B3DB55 /* Main.storyboard */; };
 		0984F33B1C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0984F3391C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld */; };
 		0984F33D1C43DFE200B3DB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0984F33C1C43DFE200B3DB55 /* Assets.xcassets */; };
-		0984F3401C43DFE200B3DB55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0984F33E1C43DFE200B3DB55 /* LaunchScreen.storyboard */; };
 		0984F34B1C43DFE200B3DB55 /* Route_BuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */; };
-		0984F3561C43DFE200B3DB55 /* Route_BuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F3551C43DFE200B3DB55 /* Route_BuddyUITests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0984F3471C43DFE200B3DB55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0984F3221C43DFE200B3DB55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0984F3291C43DFE200B3DB55;
-			remoteInfo = "Route Buddy";
-		};
-		0984F3521C43DFE200B3DB55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0984F3221C43DFE200B3DB55 /* Project object */;
 			proxyType = 1;
@@ -45,13 +36,10 @@
 		0984F3371C43DFE200B3DB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0984F33A1C43DFE200B3DB55 /* Route_Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Route_Buddy.xcdatamodel; sourceTree = "<group>"; };
 		0984F33C1C43DFE200B3DB55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0984F33F1C43DFE200B3DB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0984F3411C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0984F3461C43DFE200B3DB55 /* Route BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Route BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route_BuddyTests.m; sourceTree = "<group>"; };
 		0984F34C1C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0984F3511C43DFE200B3DB55 /* Route BuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Route BuddyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0984F3551C43DFE200B3DB55 /* Route_BuddyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route_BuddyUITests.m; sourceTree = "<group>"; };
 		0984F3571C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,13 +52,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0984F3431C43DFE200B3DB55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0984F34E1C43DFE200B3DB55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -95,7 +76,6 @@
 			children = (
 				0984F32A1C43DFE200B3DB55 /* Route Buddy.app */,
 				0984F3461C43DFE200B3DB55 /* Route BuddyTests.xctest */,
-				0984F3511C43DFE200B3DB55 /* Route BuddyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,7 +89,6 @@
 				0984F3341C43DFE200B3DB55 /* ViewController.m */,
 				0984F3361C43DFE200B3DB55 /* Main.storyboard */,
 				0984F33C1C43DFE200B3DB55 /* Assets.xcassets */,
-				0984F33E1C43DFE200B3DB55 /* LaunchScreen.storyboard */,
 				0984F3411C43DFE200B3DB55 /* Info.plist */,
 				0984F3391C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld */,
 				0984F32D1C43DFE200B3DB55 /* Supporting Files */,
@@ -137,7 +116,6 @@
 		0984F3541C43DFE200B3DB55 /* Route BuddyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0984F3551C43DFE200B3DB55 /* Route_BuddyUITests.m */,
 				0984F3571C43DFE200B3DB55 /* Info.plist */,
 			);
 			path = "Route BuddyUITests";
@@ -181,24 +159,6 @@
 			productReference = 0984F3461C43DFE200B3DB55 /* Route BuddyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0984F3501C43DFE200B3DB55 /* Route BuddyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0984F3601C43DFE200B3DB55 /* Build configuration list for PBXNativeTarget "Route BuddyUITests" */;
-			buildPhases = (
-				0984F34D1C43DFE200B3DB55 /* Sources */,
-				0984F34E1C43DFE200B3DB55 /* Frameworks */,
-				0984F34F1C43DFE200B3DB55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0984F3531C43DFE200B3DB55 /* PBXTargetDependency */,
-			);
-			name = "Route BuddyUITests";
-			productName = "Route BuddyUITests";
-			productReference = 0984F3511C43DFE200B3DB55 /* Route BuddyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,10 +172,6 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					0984F3451C43DFE200B3DB55 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 0984F3291C43DFE200B3DB55;
-					};
-					0984F3501C43DFE200B3DB55 = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 0984F3291C43DFE200B3DB55;
 					};
@@ -236,7 +192,6 @@
 			targets = (
 				0984F3291C43DFE200B3DB55 /* Route Buddy */,
 				0984F3451C43DFE200B3DB55 /* Route BuddyTests */,
-				0984F3501C43DFE200B3DB55 /* Route BuddyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,20 +201,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0984F3401C43DFE200B3DB55 /* LaunchScreen.storyboard in Resources */,
 				0984F33D1C43DFE200B3DB55 /* Assets.xcassets in Resources */,
 				0984F3381C43DFE200B3DB55 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0984F3441C43DFE200B3DB55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0984F34F1C43DFE200B3DB55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,14 +235,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0984F34D1C43DFE200B3DB55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0984F3561C43DFE200B3DB55 /* Route_BuddyUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -303,11 +242,6 @@
 			isa = PBXTargetDependency;
 			target = 0984F3291C43DFE200B3DB55 /* Route Buddy */;
 			targetProxy = 0984F3471C43DFE200B3DB55 /* PBXContainerItemProxy */;
-		};
-		0984F3531C43DFE200B3DB55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0984F3291C43DFE200B3DB55 /* Route Buddy */;
-			targetProxy = 0984F3521C43DFE200B3DB55 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -318,14 +252,6 @@
 				0984F3371C43DFE200B3DB55 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0984F33E1C43DFE200B3DB55 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0984F33F1C43DFE200B3DB55 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -367,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -405,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -458,30 +384,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-BuddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Route Buddy.app/Route Buddy";
-			};
-			name = Release;
-		};
-		0984F3611C43DFE200B3DB55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Route BuddyUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-BuddyUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Route Buddy";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		0984F3621C43DFE200B3DB55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Route BuddyUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-BuddyUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Route Buddy";
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
