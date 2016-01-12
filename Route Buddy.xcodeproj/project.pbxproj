@@ -28,13 +28,6 @@
 			remoteGlobalIDString = 0984F3291C43DFE200B3DB55;
 			remoteInfo = "Route Buddy";
 		};
-		0984F3521C43DFE200B3DB55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0984F3221C43DFE200B3DB55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0984F3291C43DFE200B3DB55;
-			remoteInfo = "Route Buddy";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +44,6 @@
 		0984F3461C43DFE200B3DB55 /* Route BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Route BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route_BuddyTests.m; sourceTree = "<group>"; };
 		0984F34C1C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0984F3511C43DFE200B3DB55 /* Route BuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Route BuddyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0984F3551C43DFE200B3DB55 /* Route_BuddyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route_BuddyUITests.m; sourceTree = "<group>"; };
 		0984F3571C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A6167511C43F9F5004309D5 /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
 		4A6167521C43F9F5004309D5 /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
@@ -70,13 +61,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0984F3431C43DFE200B3DB55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0984F34E1C43DFE200B3DB55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -102,7 +86,6 @@
 			children = (
 				0984F32A1C43DFE200B3DB55 /* Route Buddy.app */,
 				0984F3461C43DFE200B3DB55 /* Route BuddyTests.xctest */,
-				0984F3511C43DFE200B3DB55 /* Route BuddyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +131,6 @@
 		0984F3541C43DFE200B3DB55 /* Route BuddyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0984F3551C43DFE200B3DB55 /* Route_BuddyUITests.m */,
 				0984F3571C43DFE200B3DB55 /* Info.plist */,
 			);
 			path = "Route BuddyUITests";
@@ -192,24 +174,6 @@
 			productReference = 0984F3461C43DFE200B3DB55 /* Route BuddyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0984F3501C43DFE200B3DB55 /* Route BuddyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0984F3601C43DFE200B3DB55 /* Build configuration list for PBXNativeTarget "Route BuddyUITests" */;
-			buildPhases = (
-				0984F34D1C43DFE200B3DB55 /* Sources */,
-				0984F34E1C43DFE200B3DB55 /* Frameworks */,
-				0984F34F1C43DFE200B3DB55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0984F3531C43DFE200B3DB55 /* PBXTargetDependency */,
-			);
-			name = "Route BuddyUITests";
-			productName = "Route BuddyUITests";
-			productReference = 0984F3511C43DFE200B3DB55 /* Route BuddyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,10 +187,6 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					0984F3451C43DFE200B3DB55 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 0984F3291C43DFE200B3DB55;
-					};
-					0984F3501C43DFE200B3DB55 = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 0984F3291C43DFE200B3DB55;
 					};
@@ -247,7 +207,6 @@
 			targets = (
 				0984F3291C43DFE200B3DB55 /* Route Buddy */,
 				0984F3451C43DFE200B3DB55 /* Route BuddyTests */,
-				0984F3501C43DFE200B3DB55 /* Route BuddyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -263,13 +222,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0984F3441C43DFE200B3DB55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0984F34F1C43DFE200B3DB55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -301,14 +253,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0984F34D1C43DFE200B3DB55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0984F3561C43DFE200B3DB55 /* Route_BuddyUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -316,11 +260,6 @@
 			isa = PBXTargetDependency;
 			target = 0984F3291C43DFE200B3DB55 /* Route Buddy */;
 			targetProxy = 0984F3471C43DFE200B3DB55 /* PBXContainerItemProxy */;
-		};
-		0984F3531C43DFE200B3DB55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0984F3291C43DFE200B3DB55 /* Route Buddy */;
-			targetProxy = 0984F3521C43DFE200B3DB55 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
