@@ -403,7 +403,7 @@
         <!--Emergency Contact Form-->
         <scene sceneID="IoA-1A-N4B">
             <objects>
-                <viewController title="Emergency Contact Form" id="djm-H9-vHG" sceneMemberID="viewController">
+                <viewController title="Emergency Contact Form" id="djm-H9-vHG" customClass="EmergencyContactFormViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q6G-Rc-SFE"/>
                         <viewControllerLayoutGuide type="bottom" id="b8J-Ur-DM5"/>
@@ -456,7 +456,7 @@
                                             <constraint firstAttribute="height" constant="50" id="qox-Ne-NUN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Add Emergency Contact">
+                                        <state key="normal" title="Add">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -497,6 +497,12 @@
                     <navigationItem key="navigationItem" title="Add Emergency Contact" id="SFn-AI-odC">
                         <barButtonItem key="backBarButtonItem" title="Back" id="0Xb-EN-Sud"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="Som-qg-Pdw" id="JUm-dE-Z4r"/>
+                        <outlet property="navigationTitle" destination="SFn-AI-odC" id="4UU-sE-yTe"/>
+                        <outlet property="phoneNumberTextField" destination="H6O-a4-oOk" id="Q5u-Qi-X4W"/>
+                        <outlet property="submitButton" destination="nU7-Cz-Wr5" id="U4q-SI-aq8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7h-uR-RWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
