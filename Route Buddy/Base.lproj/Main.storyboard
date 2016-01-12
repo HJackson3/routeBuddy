@@ -32,9 +32,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="DestinationsView" destination="x9s-0v-Eva" id="QwM-S8-tB6"/>
-                    </connections>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Home" id="ijB-rp-B77">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="cqF-6b-RMz" userLabel="Settings Button">
+                            <connections>
+                                <segue destination="jbt-4W-W9O" kind="show" id="gSN-Zt-Qq3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

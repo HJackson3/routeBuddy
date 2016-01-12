@@ -12,5 +12,6 @@
 
 @property NSString* name;
 @property NSString* phoneNumber;
+@property int priority;
 
 @end

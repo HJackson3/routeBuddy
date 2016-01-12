@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Destination : NSObject
 
 @property NSString* name;
-@property NSString* location;
+@property CLLocationCoordinate2D location;
 
--(id)initWithName:(NSString *)name AndLocation:(NSString*)location;
--(void) setName:(NSString *)name AndLocation:(NSString*)location;
+-(id)initWithName:(NSString *)name AndLocation:(CLLocationCoordinate2D)location;
+-(void) setName:(NSString *)name AndLocation:(CLLocationCoordinate2D)location;
 
 @end

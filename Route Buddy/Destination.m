@@ -10,7 +10,7 @@
 
 @implementation Destination
 
--(id)initWithName:(NSString *)name AndLocation:(NSString *)location {
+-(id)initWithName:(NSString *)name AndLocation:(CLLocationCoordinate2D)location {
 
     self = [super init];
     
@@ -20,7 +20,7 @@
     return self;
 }
 
--(void)setName:(NSString *)name AndLocation:(NSString *)location {
+-(void)setName:(NSString *)name AndLocation:(CLLocationCoordinate2D)location {
     
     self.name = name;
     self.location = location;

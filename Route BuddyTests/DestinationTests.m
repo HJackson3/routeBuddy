@@ -28,10 +28,20 @@
 
 - (void)testInit {
     
-    Destination* des = [[Destination alloc] initWithName:@"name" AndLocation:@"loc"];
+    Destination* des = [[Destination alloc] initWithName:@"name" AndLocation:CLLocationCoordinate2DMake(1.0, 0.0)];
     XCTAssertTrue([des.name isEqual:@"name"]);
-    XCTAssertTrue([des.location isEqual:@"loc"]);
+    XCTAssertTrue(des.location.latitude == 1.0);
+    XCTAssertTrue(des.location.longitude == 0.0);
     
+}
+
+-(void)testSetNameAndLocation {
+    
+    Destination* des = [[Destination alloc] initWithName:@"name" AndLocation:CLLocationCoordinate2DMake(1.0, 0.0)];
+    [des setName:@"new" AndLocation:CLLocationCoordinate2DMake(0.0, 1.0)];
+    XCTAssertTrue([des.name isEqual:@"new"]);
+    XCTAssertTrue(des.location.latitude == 0.0);
+    XCTAssertTrue(des.location.longitude == 1.0);
 }
 
 @end
