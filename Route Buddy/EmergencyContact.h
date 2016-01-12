@@ -14,4 +14,8 @@
 @property NSString* phoneNumber;
 @property int priority;
 
+-(id)initWithName:(NSString*)name PhoneNumber:(NSString*)phoneNumber AndPriority:(int)priority;
+
+-(void)updateName:(NSString*)name AndPhoneNumber:(NSString*)phoneNumber;
+
 @end

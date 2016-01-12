@@ -15,6 +15,8 @@
 		0984F33D1C43DFE200B3DB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0984F33C1C43DFE200B3DB55 /* Assets.xcassets */; };
 		0984F34B1C43DFE200B3DB55 /* Route_BuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */; };
 		4A14DF8D1C45285100A2E31D /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167521C43F9F5004309D5 /* Destination.m */; };
+		4A14DF8F1C452E8D00A2E31D /* EmergencyContactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14DF8E1C452E8D00A2E31D /* EmergencyContactTests.m */; };
+		4A14DF901C4533A400A2E31D /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167561C43FBB3004309D5 /* EmergencyContact.m */; };
 		4A6167531C43F9F5004309D5 /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167521C43F9F5004309D5 /* Destination.m */; };
 		4A6167571C43FBB3004309D5 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167561C43FBB3004309D5 /* EmergencyContact.m */; };
 		4A61675A1C4401DE004309D5 /* DestinationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167591C4401DE004309D5 /* DestinationTests.m */; };
@@ -45,6 +47,7 @@
 		0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route_BuddyTests.m; sourceTree = "<group>"; };
 		0984F34C1C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0984F3571C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A14DF8E1C452E8D00A2E31D /* EmergencyContactTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContactTests.m; sourceTree = "<group>"; };
 		4A6167511C43F9F5004309D5 /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
 		4A6167521C43F9F5004309D5 /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
 		4A6167551C43FBB3004309D5 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 				0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */,
 				0984F34C1C43DFE200B3DB55 /* Info.plist */,
 				4A6167591C4401DE004309D5 /* DestinationTests.m */,
+				4A14DF8E1C452E8D00A2E31D /* EmergencyContactTests.m */,
 			);
 			path = "Route BuddyTests";
 			sourceTree = "<group>";
@@ -248,9 +252,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A14DF8F1C452E8D00A2E31D /* EmergencyContactTests.m in Sources */,
 				4A61675A1C4401DE004309D5 /* DestinationTests.m in Sources */,
 				4A14DF8D1C45285100A2E31D /* Destination.m in Sources */,
 				0984F34B1C43DFE200B3DB55 /* Route_BuddyTests.m in Sources */,
+				4A14DF901C4533A400A2E31D /* EmergencyContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

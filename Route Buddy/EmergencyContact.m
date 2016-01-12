@@ -10,4 +10,23 @@
 
 @implementation EmergencyContact
 
+-(id)initWithName:(NSString *)name PhoneNumber:(NSString *)phoneNumber AndPriority:(int)priority {
+    
+    self = [super init];
+    if(self){
+        self.name = name;
+        self.phoneNumber = phoneNumber;
+        self.priority = priority;
+    }
+    return self;
+    
+}
+
+-(void)updateName:(NSString *)name AndPhoneNumber:(NSString *)phoneNumber {
+    
+    self.name = name;
+    self.phoneNumber = phoneNumber;
+    
+}
+
 @end
