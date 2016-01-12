@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		0984F33B1C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0984F3391C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld */; };
 		0984F33D1C43DFE200B3DB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0984F33C1C43DFE200B3DB55 /* Assets.xcassets */; };
 		0984F34B1C43DFE200B3DB55 /* Route_BuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */; };
+		4A14DF8D1C45285100A2E31D /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167521C43F9F5004309D5 /* Destination.m */; };
+		4A14DF8F1C452E8D00A2E31D /* EmergencyContactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14DF8E1C452E8D00A2E31D /* EmergencyContactTests.m */; };
+		4A14DF901C4533A400A2E31D /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167561C43FBB3004309D5 /* EmergencyContact.m */; };
+		4A6167531C43F9F5004309D5 /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167521C43F9F5004309D5 /* Destination.m */; };
+		4A6167571C43FBB3004309D5 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167561C43FBB3004309D5 /* EmergencyContact.m */; };
+		4A61675A1C4401DE004309D5 /* DestinationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6167591C4401DE004309D5 /* DestinationTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 		0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route_BuddyTests.m; sourceTree = "<group>"; };
 		0984F34C1C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0984F3571C43DFE200B3DB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A14DF8E1C452E8D00A2E31D /* EmergencyContactTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContactTests.m; sourceTree = "<group>"; };
+		4A6167511C43F9F5004309D5 /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
+		4A6167521C43F9F5004309D5 /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
+		4A6167551C43FBB3004309D5 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
+		4A6167561C43FBB3004309D5 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
+		4A6167591C4401DE004309D5 /* DestinationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,7 @@
 				0984F32B1C43DFE200B3DB55 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		0984F32B1C43DFE200B3DB55 /* Products */ = {
 			isa = PBXGroup;
@@ -111,6 +124,8 @@
 			children = (
 				0984F34A1C43DFE200B3DB55 /* Route_BuddyTests.m */,
 				0984F34C1C43DFE200B3DB55 /* Info.plist */,
+				4A6167591C4401DE004309D5 /* DestinationTests.m */,
+				4A14DF8E1C452E8D00A2E31D /* EmergencyContactTests.m */,
 			);
 			path = "Route BuddyTests";
 			sourceTree = "<group>";
@@ -180,7 +195,7 @@
 				};
 			};
 			buildConfigurationList = 0984F3251C43DFE200B3DB55 /* Build configuration list for PBXProject "Route Buddy" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -222,9 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6167531C43F9F5004309D5 /* Destination.m in Sources */,
 				0984F3351C43DFE200B3DB55 /* ViewController.m in Sources */,
 				0984F3321C43DFE200B3DB55 /* AppDelegate.m in Sources */,
 				0984F33B1C43DFE200B3DB55 /* Route_Buddy.xcdatamodeld in Sources */,
+				4A6167571C43FBB3004309D5 /* EmergencyContact.m in Sources */,
 				0984F32F1C43DFE200B3DB55 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A14DF8F1C452E8D00A2E31D /* EmergencyContactTests.m in Sources */,
+				4A61675A1C4401DE004309D5 /* DestinationTests.m in Sources */,
+				4A14DF8D1C45285100A2E31D /* Destination.m in Sources */,
 				0984F34B1C43DFE200B3DB55 /* Route_BuddyTests.m in Sources */,
+				4A14DF901C4533A400A2E31D /* EmergencyContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +371,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -362,6 +384,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -370,6 +393,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Route BuddyTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-BuddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -382,6 +406,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Route BuddyTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.sheffield.Route-BuddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
