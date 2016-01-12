@@ -13,6 +13,7 @@
 		092CD06A1C453AEB00C3354F /* Destination.h in Sources */ = {isa = PBXBuildFile; fileRef = 092CD0621C45366700C3354F /* Destination.h */; };
 		092CD06B1C453AF100C3354F /* EmergencyContact.h in Sources */ = {isa = PBXBuildFile; fileRef = 092CD0641C45366700C3354F /* EmergencyContact.h */; };
 		092CD06C1C453AF600C3354F /* EmergencyContactFormViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 092CD0611C45343800C3354F /* EmergencyContactFormViewController.h */; };
+		092CD06F1C4565BA00C3354F /* EmergencyContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 092CD06E1C4565BA00C3354F /* EmergencyContactList.m */; };
 		0984F32F1C43DFE200B3DB55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32E1C43DFE200B3DB55 /* main.m */; };
 		0984F3321C43DFE200B3DB55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F3311C43DFE200B3DB55 /* AppDelegate.m */; };
 		0984F3351C43DFE200B3DB55 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984F3341C43DFE200B3DB55 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 		092CD0641C45366700C3354F /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
 		092CD0651C45366700C3354F /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
 		092CD0681C45372100C3354F /* EmergencyContactFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContactFormViewController.m; sourceTree = "<group>"; };
+		092CD06D1C4565BA00C3354F /* EmergencyContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContactList.h; sourceTree = "<group>"; };
+		092CD06E1C4565BA00C3354F /* EmergencyContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContactList.m; sourceTree = "<group>"; };
 		0984F32A1C43DFE200B3DB55 /* Route Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Route Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0984F32E1C43DFE200B3DB55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0984F3301C43DFE200B3DB55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				0984F3341C43DFE200B3DB55 /* ViewController.m */,
 				092CD0611C45343800C3354F /* EmergencyContactFormViewController.h */,
 				092CD0681C45372100C3354F /* EmergencyContactFormViewController.m */,
+				092CD06D1C4565BA00C3354F /* EmergencyContactList.h */,
+				092CD06E1C4565BA00C3354F /* EmergencyContactList.m */,
 				0984F3361C43DFE200B3DB55 /* Main.storyboard */,
 				0984F33C1C43DFE200B3DB55 /* Assets.xcassets */,
 				0984F3411C43DFE200B3DB55 /* Info.plist */,
@@ -199,6 +204,7 @@
 				TargetAttributes = {
 					0984F3291C43DFE200B3DB55 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 54W85G3L3F;
 					};
 					0984F3451C43DFE200B3DB55 = {
 						CreatedOnToolsVersion = 7.2;
@@ -249,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092CD06F1C4565BA00C3354F /* EmergencyContactList.m in Sources */,
 				092CD06C1C453AF600C3354F /* EmergencyContactFormViewController.h in Sources */,
 				092CD06B1C453AF100C3354F /* EmergencyContact.h in Sources */,
 				092CD06A1C453AEB00C3354F /* Destination.h in Sources */,
@@ -382,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Route Buddy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -395,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Route Buddy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

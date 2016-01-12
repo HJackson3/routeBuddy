@@ -39,7 +39,8 @@
 
 - (void)onSubmitButtonClick {
     if (self.emergencyContact == NULL) {
-        // Add new one
+        // Add a new emergency contact
+        [[EmergencyContact alloc] initWithName:self.nameTextField.text PhoneNumber:self.phoneNumberTextField.text AndPriority:0];
     } else {
         // Update contact
     }

@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface EmergencyContact : NSObject
+@interface EmergencyContact : NSManagedObject
 
 @property NSString* name;
 @property NSString* phoneNumber;
