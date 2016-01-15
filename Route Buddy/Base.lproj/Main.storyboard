@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -50,7 +50,7 @@
         <!--Settings-->
         <scene sceneID="Dyi-yR-UI3">
             <objects>
-                <viewController id="jbt-4W-W9O" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="carerSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jbt-4W-W9O" customClass="CarerSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="byg-FU-als"/>
                         <viewControllerLayoutGuide type="bottom" id="VxH-IN-YA0"/>
@@ -96,9 +96,6 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="qC1-Zc-emk" kind="show" id="25r-Xi-gp5"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,7 +131,7 @@
         <!--Emergency Contacts-->
         <scene sceneID="Dy4-VE-4H4">
             <objects>
-                <viewController id="zd7-Eq-TpD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="emergencyContactListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zd7-Eq-TpD" customClass="EmergencyContactListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dUf-sY-dyt"/>
                         <viewControllerLayoutGuide type="bottom" id="okM-31-H0N"/>
@@ -146,6 +143,71 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q6L-tq-IlP">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ECTableCell" id="mnk-hz-lOc" customClass="EmergencyContactTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mnk-hz-lOc" id="C1k-hj-jFV">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-xm-sF3">
+                                                    <rect key="frame" x="10" y="0.0" width="420" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMk-qQ-Ldj" userLabel="Edit Button">
+                                                    <rect key="frame" x="440" y="0.0" width="80" height="43"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="5BK-oO-wGy"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Edit">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4f-K2-c0k">
+                                                    <rect key="frame" x="520" y="0.0" width="80" height="43"/>
+                                                    <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="EJc-XW-zN4"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Delete">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ifo-xm-sF3" firstAttribute="leading" secondItem="C1k-hj-jFV" secondAttribute="leading" constant="10" id="2L8-8l-Xyf"/>
+                                                <constraint firstItem="ifo-xm-sF3" firstAttribute="top" secondItem="C1k-hj-jFV" secondAttribute="top" id="2VB-H6-X8Y"/>
+                                                <constraint firstAttribute="trailing" secondItem="N4f-K2-c0k" secondAttribute="trailing" id="9rt-Du-8nl"/>
+                                                <constraint firstAttribute="bottom" secondItem="pMk-qQ-Ldj" secondAttribute="bottom" id="Ajn-V1-k4E"/>
+                                                <constraint firstAttribute="bottom" secondItem="ifo-xm-sF3" secondAttribute="bottom" id="EJe-LI-gbV"/>
+                                                <constraint firstItem="N4f-K2-c0k" firstAttribute="leading" secondItem="ifo-xm-sF3" secondAttribute="trailing" constant="10" id="Ytu-Kh-KGZ"/>
+                                                <constraint firstItem="N4f-K2-c0k" firstAttribute="top" secondItem="C1k-hj-jFV" secondAttribute="top" id="e7b-Vh-eZb"/>
+                                                <constraint firstItem="N4f-K2-c0k" firstAttribute="leading" secondItem="pMk-qQ-Ldj" secondAttribute="trailing" id="jhL-1I-PaB"/>
+                                                <constraint firstItem="pMk-qQ-Ldj" firstAttribute="top" secondItem="C1k-hj-jFV" secondAttribute="top" id="ru1-wo-4Di"/>
+                                                <constraint firstAttribute="bottom" secondItem="N4f-K2-c0k" secondAttribute="bottom" id="shd-Za-UfV"/>
+                                                <constraint firstItem="pMk-qQ-Ldj" firstAttribute="leading" secondItem="ifo-xm-sF3" secondAttribute="trailing" constant="10" id="yEd-SC-fv3"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Ytu-Kh-KGZ"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deleteButton" destination="N4f-K2-c0k" id="n3Z-Mh-vwe"/>
+                                            <outlet property="editButton" destination="pMk-qQ-Ldj" id="G5b-CF-7wa"/>
+                                            <outlet property="label" destination="ifo-xm-sF3" id="CZv-o1-jov"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zd7-Eq-TpD" id="TG1-Mp-2GE"/>
+                                    <outlet property="delegate" destination="zd7-Eq-TpD" id="rm8-Mx-1KP"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,6 +232,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="q6L-tq-IlP" id="Vk0-gC-agG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7a-BR-Qf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,7 +243,7 @@
         <!--Destinations-->
         <scene sceneID="2KQ-Xg-UWg">
             <objects>
-                <viewController id="qC1-Zc-emk" sceneMemberID="viewController">
+                <viewController id="qC1-Zc-emk" customClass="DestinationListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="83c-kd-hUn"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6Z-J2-6gJ"/>
@@ -187,7 +252,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4St-bB-F3m">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4St-bB-F3m">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -216,7 +281,7 @@
         <!--Destination Form-->
         <scene sceneID="vlc-Hg-hbz">
             <objects>
-                <viewController title="Destination Form" id="3kT-So-eA1" sceneMemberID="viewController">
+                <viewController title="Destination Form" id="3kT-So-eA1" customClass="DestinationFormViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QNf-2c-uPp"/>
                         <viewControllerLayoutGuide type="bottom" id="0mB-wp-Sg2"/>
@@ -403,7 +468,7 @@
         <!--Emergency Contact Form-->
         <scene sceneID="IoA-1A-N4B">
             <objects>
-                <viewController title="Emergency Contact Form" id="djm-H9-vHG" customClass="EmergencyContactFormViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="emergencyContactFormViewController" title="Emergency Contact Form" useStoryboardIdentifierAsRestorationIdentifier="YES" id="djm-H9-vHG" customClass="EmergencyContactFormViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q6G-Rc-SFE"/>
                         <viewControllerLayoutGuide type="bottom" id="b8J-Ur-DM5"/>
@@ -464,6 +529,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="save:" destination="djm-H9-vHG" eventType="touchUpInside" id="WSz-bt-rvk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -498,8 +566,10 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="0Xb-EN-Sud"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameField" destination="Som-qg-Pdw" id="XaS-gN-WPB"/>
                         <outlet property="nameTextField" destination="Som-qg-Pdw" id="JUm-dE-Z4r"/>
                         <outlet property="navigationTitle" destination="SFn-AI-odC" id="4UU-sE-yTe"/>
+                        <outlet property="phoneNumberField" destination="H6O-a4-oOk" id="m4z-cH-a7K"/>
                         <outlet property="phoneNumberTextField" destination="H6O-a4-oOk" id="Q5u-Qi-X4W"/>
                         <outlet property="submitButton" destination="nU7-Cz-Wr5" id="U4q-SI-aq8"/>
                     </connections>
@@ -511,7 +581,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kB3-Qp-U5a">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iL4-9M-XMt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="rootNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iL4-9M-XMt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3pS-MS-Z4I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

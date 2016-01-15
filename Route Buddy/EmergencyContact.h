@@ -2,21 +2,25 @@
 //  EmergencyContact.h
 //  Route Buddy
 //
-//  Created by Harry Jackson on 11.01.16.
-//  Copyright (c) 2016 Harry and Adam. All rights reserved.
+//  Created by Adam Lewis on 14/01/2016.
+//  Copyright © 2016 Harry and Adam. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface EmergencyContact : NSManagedObject
 
-@property NSString* name;
-@property NSString* phoneNumber;
-@property int priority;
+-(void)insertInManagedObjectContext:(NSManagedObjectContext*) context;
 
--(id)initWithName:(NSString*)name PhoneNumber:(NSString*)phoneNumber AndPriority:(int)priority;
+-(void)updateInManagedObjectContext: (NSManagedObjectContext*) context;
 
--(void)updateName:(NSString*)name AndPhoneNumber:(NSString*)phoneNumber;
+-(void)deleteFromManagedObjectContext: (NSManagedObjectContext*) context;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "EmergencyContact+CoreDataProperties.h"

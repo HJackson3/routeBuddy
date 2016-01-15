@@ -6,6 +6,7 @@
 //  Copyright © 2016 Harry and Adam. All rights reserved.
 //
 
+#import "HomeViewController.h"
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -16,7 +17,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Fetch Main Storyboard
+    //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    // Instantiate Root Navigation Controller
+    //UINavigationController *rootNavigationController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"rootNavigationController"];
+    
+    // Configure View Controller
+    //HomeViewController *viewController = (HomeViewController*) [rootNavigationController topViewController];
+    
+    //if ([viewController isKindOfClass:[HomeViewController class]]) {
+        //[viewController setManagedObjectContext:self.managedObjectContext];
+    //}
+    
     return YES;
 }
 

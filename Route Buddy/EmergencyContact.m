@@ -2,30 +2,34 @@
 //  EmergencyContact.m
 //  Route Buddy
 //
-//  Created by Harry Jackson on 11.01.16.
-//  Copyright (c) 2016 Harry and Adam. All rights reserved.
+//  Created by Adam Lewis on 14/01/2016.
+//  Copyright © 2016 Harry and Adam. All rights reserved.
 //
 
 #import "EmergencyContact.h"
 
 @implementation EmergencyContact
 
--(id)initWithName:(NSString *)name PhoneNumber:(NSString *)phoneNumber AndPriority:(int)priority {
+-(void)insertInManagedObjectContext:(NSManagedObjectContext *)context {
+    // Get the managed object
+    NSManagedObject *ec = [NSEntityDescription insertNewObjectForEntityForName:@"EmergencyContact" inManagedObjectContext:context];
     
-    self = [super init];
-    if(self){
-        self.name = name;
-        self.phoneNumber = phoneNumber;
-        self.priority = priority;
-    }
-    return self;
+    // Set the values
+    [ec setValue:self.name forKey:@"name"];
+    [ec setValue:self.phoneNumber forKey:@"phoneNumber"];
+    [ec setValue:self.priority forKey:@"priority"];
+    
+    // write the context to the persistent store
+    NSError *error;
+    if (![context save:&error])
+        NSLog(@"Save failed: %@", [error localizedDescription]);
+}
+
+-(void)updateInManagedObjectContext:(NSManagedObjectContext *)context {
     
 }
 
--(void)updateName:(NSString *)name AndPhoneNumber:(NSString *)phoneNumber {
-    
-    self.name = name;
-    self.phoneNumber = phoneNumber;
+-(void)deleteFromManagedObjectContext:(NSManagedObjectContext *)context {
     
 }
 

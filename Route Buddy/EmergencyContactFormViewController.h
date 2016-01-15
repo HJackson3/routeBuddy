@@ -2,26 +2,24 @@
 //  EmergencyContactFormViewController.h
 //  Route Buddy
 //
-//  Created by Adam Lewis on 12/01/2016.
+//  Created by Adam Lewis on 15/01/2016.
 //  Copyright © 2016 Harry and Adam. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
-#import "EmergencyContact.h"
+#import <UIKit/UIKit.h>
 
-@interface EmergencyContactFormViewController : UIViewController <UITextFieldDelegate>
+@interface EmergencyContactFormViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
 
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationTitle;
+//- (IBAction)cancel:(id)sender;
 
-@property (strong) EmergencyContact *emergencyContact;
-
-- (void) onSubmitButtonClick;
+- (IBAction)save:(id)sender;
 
 @end
