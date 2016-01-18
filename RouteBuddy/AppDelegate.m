@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "EmergencyContactFormViewController.h"
+#import "EmergencyContactEditViewController.h"
 #import "EmergencyContactListViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
@@ -57,7 +57,7 @@
 #pragma mark - Split view
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[EmergencyContactFormViewController class]] && ([(EmergencyContactFormViewController *)[(UINavigationController *)secondaryViewController topViewController] emergencyContact] == nil)) {
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[EmergencyContactEditViewController class]] && ([(EmergencyContactEditViewController *)[(UINavigationController *)secondaryViewController topViewController] emergencyContact] == nil)) {
         // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
         return YES;
     } else {

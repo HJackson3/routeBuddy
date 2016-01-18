@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Emergency Contact Form-->
+        <!--Emergency Contact Edit-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Emergency Contact Form" id="JEX-9P-axG" customClass="EmergencyContactFormViewController" sceneMemberID="viewController">
+                <viewController title="Emergency Contact Edit" id="JEX-9P-axG" customClass="EmergencyContactEditViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -80,12 +80,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="bV5-wr-vmT" secondAttribute="trailing" id="VVe-vf-yil"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jGL-CJ-bKw" secondAttribute="trailing" id="W6N-Jx-xS5"/>
                             <constraint firstItem="TPQ-tM-QUR" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="fFm-TV-8xt"/>
-                            <constraint firstItem="TPQ-tM-QUR" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="20" id="ikW-Ao-Kzf"/>
                             <constraint firstItem="bV5-wr-vmT" firstAttribute="top" secondItem="lmP-KX-cQg" secondAttribute="bottom" constant="20" id="x6x-Nw-L76"/>
+                            <constraint firstItem="TPQ-tM-QUR" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="20" id="y5a-JY-byy"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Emergency Contact" id="mOI-FS-AaM">
+                    <navigationItem key="navigationItem" title="Edit Emergency Contact" id="mOI-FS-AaM">
                         <barButtonItem key="rightBarButtonItem" title="Update" id="fcN-65-LIN" userLabel="Update Button">
                             <connections>
                                 <action selector="updateEmergencyContact:" destination="JEX-9P-axG" id="OMC-0H-Vec"/>
@@ -94,7 +94,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nameField" destination="jGL-CJ-bKw" id="BuD-h3-Vmr"/>
-                        <outlet property="phoneNumberField" destination="bV5-wr-vmT" id="gD5-Yd-4E3"/>
+                        <outlet property="phoneNumberField" destination="bV5-wr-vmT" id="A4d-xZ-Kzv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -153,10 +153,29 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Emergency Contacts" id="Zdf-7t-Un8"/>
+                    <connections>
+                        <segue destination="EUf-NK-GYc" kind="show" identifier="newEmergencyContact" id="1eX-ri-26D"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RC8-MX-9KP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EGq-yc-iaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="EUf-NK-GYc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qrP-xT-wex">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LOW-qB-u9q" kind="relationship" relationship="rootViewController" id="qpD-XI-gah"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1455" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -173,8 +192,89 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
+        <!--Emergency Contact New-->
+        <scene sceneID="8gL-xv-OQQ">
+            <objects>
+                <viewController title="Emergency Contact New" id="LOW-qB-u9q" customClass="EmergencyContactNewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sMj-Zx-ML7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q0r-SH-rxr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bbD-8A-fGr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6g-eg-xha">
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WFL-MT-vAm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="net-Ej-Rym">
+                                <rect key="frame" x="20" y="134" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fNG-xX-LN8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy2-FE-btn">
+                                <rect key="frame" x="20" y="204" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qUt-XL-i37"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2t-kI-SYo">
+                                <rect key="frame" x="20" y="254" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3h8-EM-Eck"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="net-Ej-Rym" secondAttribute="trailing" id="8jG-u4-vta"/>
+                            <constraint firstItem="cy2-FE-btn" firstAttribute="leading" secondItem="bbD-8A-fGr" secondAttribute="leadingMargin" id="FC5-gA-q3f"/>
+                            <constraint firstItem="c2t-kI-SYo" firstAttribute="top" secondItem="cy2-FE-btn" secondAttribute="bottom" constant="20" id="HxG-qm-fUp"/>
+                            <constraint firstItem="W6g-eg-xha" firstAttribute="top" secondItem="sMj-Zx-ML7" secondAttribute="bottom" constant="20" id="JeB-tH-DgZ"/>
+                            <constraint firstItem="c2t-kI-SYo" firstAttribute="leading" secondItem="bbD-8A-fGr" secondAttribute="leadingMargin" id="anp-EY-dJI"/>
+                            <constraint firstItem="net-Ej-Rym" firstAttribute="leading" secondItem="bbD-8A-fGr" secondAttribute="leadingMargin" id="bLY-l4-2bs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c2t-kI-SYo" secondAttribute="trailing" id="gU6-xh-6IU"/>
+                            <constraint firstItem="net-Ej-Rym" firstAttribute="top" secondItem="W6g-eg-xha" secondAttribute="bottom" constant="20" id="jzt-4G-eOO"/>
+                            <constraint firstItem="W6g-eg-xha" firstAttribute="leading" secondItem="bbD-8A-fGr" secondAttribute="leadingMargin" id="lW6-1L-y5a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W6g-eg-xha" secondAttribute="trailing" id="pTR-60-dpf"/>
+                            <constraint firstItem="cy2-FE-btn" firstAttribute="top" secondItem="net-Ej-Rym" secondAttribute="bottom" constant="40" id="pat-GA-CFu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cy2-FE-btn" secondAttribute="trailing" id="rmb-Sq-py9"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="New Emergency Contact" id="fws-am-exR">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="WpR-A9-eEd" userLabel="Save Button">
+                            <connections>
+                                <action selector="insertNewObject:" destination="LOW-qB-u9q" id="Zpi-bq-r3C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="net-Ej-Rym" id="vac-rn-8MM"/>
+                        <outlet property="phoneNumber" destination="c2t-kI-SYo" id="aQH-rt-PoO"/>
+                        <outlet property="phoneNumberField" destination="c2t-kI-SYo" id="Sgo-rg-meE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcU-Ch-3oG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="129"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

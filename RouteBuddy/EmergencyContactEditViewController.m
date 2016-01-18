@@ -6,13 +6,13 @@
 //  Copyright © 2016 The University of Sheffield. All rights reserved.
 //
 
-#import "EmergencyContactFormViewController.h"
+#import "EmergencyContactEditViewController.h"
 
-@interface EmergencyContactFormViewController ()
+@interface EmergencyContactEditViewController ()
 
 @end
 
-@implementation EmergencyContactFormViewController
+@implementation EmergencyContactEditViewController
 
 #pragma mark - Managing the emergency contact
 

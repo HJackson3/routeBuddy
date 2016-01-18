@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "EmergencyContact.h"
 
-@interface EmergencyContactFormViewController : UIViewController
+@interface EmergencyContactEditViewController : UIViewController
+
+@property (weak, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (strong, nonatomic) id emergencyContact;
 
@@ -18,4 +22,3 @@
 -(IBAction)updateEmergencyContact:(id)sender;
 
 @end
-
