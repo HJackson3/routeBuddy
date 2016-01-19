@@ -16,11 +16,13 @@
 
 @interface EmergencyContactListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) UIBarButtonItem *addButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 -(void) insertNewObject:(id) sender;
+
+-(IBAction)goBack:(id)sender;
 
 @end

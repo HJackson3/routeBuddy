@@ -17,10 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = self.addButton;
+    //self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    
+    [self.addButton setTarget:self];
+    [self.addButton setAction:@selector(insertNewObject:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -34,6 +36,10 @@
 
 -(void)insertNewObject:(id) sender {
     [self performSegueWithIdentifier:@"editEmergencyContact" sender:sender];
+}
+
+-(void)goBack:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Segues
