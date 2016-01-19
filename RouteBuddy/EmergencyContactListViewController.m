@@ -21,11 +21,9 @@
 
     self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = self.addButton;
-    self.formViewController = (EmergencyContactFormViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
 }
 
@@ -42,7 +40,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"editEmergencyContact"]) {
-        EmergencyContactFormViewController *controller = (EmergencyContactFormViewController *)[[segue destinationViewController] topViewController];
+        EmergencyContactFormViewController *controller = (EmergencyContactFormViewController *)[segue destinationViewController];
         if (sender == self.addButton) {
             [controller setEmergencyContact:NULL];
         } else {
@@ -51,12 +49,16 @@
             [controller setEmergencyContact:object];
         }
         controller.fetchedResultsController = self.fetchedResultsController;
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
 }
 
 #pragma mark - Table View
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"editEmergencyContact" sender:tableView];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.fetchedResultsController sections] count];
@@ -95,7 +97,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];//[NSString stringWithFormat:@"%@%@%@", [[object valueForKey:@"name"] description], @" - " , [object valueForKey:@"phoneNumber"]];
+    cell.textLabel.text = [[object valueForKey:@"name"] description];
 }
 
 #pragma mark - Fetched results controller

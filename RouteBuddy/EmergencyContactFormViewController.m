@@ -30,9 +30,11 @@
     if (self.emergencyContact) {
         self.nameField.text = [[self.emergencyContact valueForKey:@"name"] description];
         self.phoneNumberField.text = [[self.emergencyContact valueForKey:@"phoneNumber"] description];
+        self.titleBar.title = @"Edit Emergency Contact";
         self.updateButton.action = @selector(updateEmergencyContact:);
         self.updateButton.title = @"Update";
     } else {
+        self.titleBar.title = @"New Emergency Contact";
         self.updateButton.title = @"Save";
         self.updateButton.action = @selector(insertNewObject:);
         [self clearFields];

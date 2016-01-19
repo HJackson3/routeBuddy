@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *updateButton;
+@property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
 
 -(IBAction)updateEmergencyContact:(id)sender;
 

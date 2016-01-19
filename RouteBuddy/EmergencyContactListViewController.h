@@ -18,8 +18,6 @@
 
 @property (strong, nonatomic) UIBarButtonItem *addButton;
 
-@property (strong, nonatomic) EmergencyContactFormViewController *formViewController;
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
