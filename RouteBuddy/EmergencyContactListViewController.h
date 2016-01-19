@@ -9,20 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-#import "EmergencyContactEditViewController.h"
-#import "EmergencyContactNewViewController.h"
+#import "EmergencyContactFormViewController.h"
 #import "EmergencyContact.h"
 
-@class EmergencyContactEditViewController;
+@class EmergencyContactFormViewController;
 
 @interface EmergencyContactListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) EmergencyContactEditViewController *editViewController;
+@property (strong, nonatomic) UIBarButtonItem *addButton;
+
+@property (strong, nonatomic) EmergencyContactFormViewController *formViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 -(void) insertNewObject:(id) sender;
-
 
 @end

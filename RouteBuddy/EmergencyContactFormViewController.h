@@ -1,8 +1,8 @@
 //
-//  EmergencyContactNewViewController.h
+//  DetailViewController.h
 //  RouteBuddy
 //
-//  Created by Adam Lewis on 18/01/2016.
+//  Created by Adam Lewis on 17/01/2016.
 //  Copyright © 2016 The University of Sheffield. All rights reserved.
 //
 
@@ -10,15 +10,16 @@
 #import <CoreData/CoreData.h>
 #import "EmergencyContact.h"
 
-@interface EmergencyContactNewViewController : UIViewController
+@interface EmergencyContactFormViewController : UIViewController
 
 @property (weak, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) id emergencyContact;
+
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *updateButton;
 
--(void)clearFields;
-
--(IBAction)insertNewObject: (id) sender;
+-(IBAction)updateEmergencyContact:(id)sender;
 
 @end

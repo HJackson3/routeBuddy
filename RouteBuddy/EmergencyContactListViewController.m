@@ -19,9 +19,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    self.editViewController = (EmergencyContactEditViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.navigationItem.rightBarButtonItem = self.addButton;
+    self.formViewController = (EmergencyContactFormViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -35,23 +35,21 @@
 }
 
 -(void)insertNewObject:(id) sender {
-    [self performSegueWithIdentifier:@"newEmergencyContact" sender:sender];
+    [self performSegueWithIdentifier:@"editEmergencyContact" sender:sender];
 }
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"editEmergencyContact"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        EmergencyContactEditViewController *controller = (EmergencyContactEditViewController *)[[segue destinationViewController] topViewController];
-        controller.fetchedResultsController = self.fetchedResultsController;
-        [controller setEmergencyContact:object];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
-    }
-    if ([[segue identifier] isEqualToString:@"newEmergencyContact"]) {
-        EmergencyContactNewViewController *controller = (EmergencyContactNewViewController *)[[segue destinationViewController] topViewController];
+        EmergencyContactFormViewController *controller = (EmergencyContactFormViewController *)[[segue destinationViewController] topViewController];
+        if (sender == self.addButton) {
+            [controller setEmergencyContact:NULL];
+        } else {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+            [controller setEmergencyContact:object];
+        }
         controller.fetchedResultsController = self.fetchedResultsController;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
