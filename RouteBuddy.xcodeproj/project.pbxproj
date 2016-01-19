@@ -19,6 +19,8 @@
 		093711D41C4BC62A00624551 /* RouteBuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711D31C4BC62A00624551 /* RouteBuddyUITests.m */; };
 		098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */; };
 		098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
+		09BD68771C4E7CA400F3802B /* Destination+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68741C4E7CA400F3802B /* Destination+CoreDataProperties.m */; };
+		09BD68781C4E7CA400F3802B /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68761C4E7CA400F3802B /* Destination.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
 		098100211C4D174E00E9D221 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
 		098100221C4D174E00E9D221 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
+		09BD68731C4E7CA400F3802B /* Destination+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Destination+CoreDataProperties.h"; sourceTree = "<group>"; };
+		09BD68741C4E7CA400F3802B /* Destination+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Destination+CoreDataProperties.m"; sourceTree = "<group>"; };
+		09BD68751C4E7CA400F3802B /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
+		09BD68761C4E7CA400F3802B /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 		093711A71C4BC62900624551 /* RouteBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				09BD68721C4E7BEB00F3802B /* Destinations */,
 				0981001E1C4D16C400E9D221 /* Emergency Contacts */,
 				093711AB1C4BC62A00624551 /* AppDelegate.h */,
 				093711AC1C4BC62A00624551 /* AppDelegate.m */,
@@ -164,6 +171,17 @@
 				093711B51C4BC62A00624551 /* EmergencyContactFormViewController.m */,
 			);
 			name = "Emergency Contacts";
+			sourceTree = "<group>";
+		};
+		09BD68721C4E7BEB00F3802B /* Destinations */ = {
+			isa = PBXGroup;
+			children = (
+				09BD68731C4E7CA400F3802B /* Destination+CoreDataProperties.h */,
+				09BD68741C4E7CA400F3802B /* Destination+CoreDataProperties.m */,
+				09BD68751C4E7CA400F3802B /* Destination.h */,
+				09BD68761C4E7CA400F3802B /* Destination.m */,
+			);
+			name = Destinations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,9 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BD68771C4E7CA400F3802B /* Destination+CoreDataProperties.m in Sources */,
 				093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
 				093711AD1C4BC62A00624551 /* AppDelegate.m in Sources */,
+				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
 				098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */,
