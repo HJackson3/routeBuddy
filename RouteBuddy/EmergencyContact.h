@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EmergencyContact : NSManagedObject
 
++(BOOL) isValidName:(NSString*)name AndPhoneNumber:(NSString*)phoneNumber;
+
 @end
 
 NS_ASSUME_NONNULL_END

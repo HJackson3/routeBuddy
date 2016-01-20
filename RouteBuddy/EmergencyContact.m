@@ -10,4 +10,17 @@
 
 @implementation EmergencyContact
 
++(BOOL)isValidName:(NSString *)name AndPhoneNumber:(NSString *)phoneNumber {
+//    Boolean valid = true;
+    if ([name isEqualToString:@""]) {
+        return false;
+    }else if ([phoneNumber isEqualToString:@""]) {
+        return false;
+    }else if ([phoneNumber intValue] == 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 @end

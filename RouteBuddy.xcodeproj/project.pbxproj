@@ -19,6 +19,8 @@
 		093711D41C4BC62A00624551 /* RouteBuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711D31C4BC62A00624551 /* RouteBuddyUITests.m */; };
 		098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */; };
 		098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
+		4AEA967E1C4E81D400697ED8 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
+		4AEA96801C4E820100697ED8 /* EmergencyContactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
 		098100211C4D174E00E9D221 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
 		098100221C4D174E00E9D221 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
+		4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContactTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 			children = (
 				093711C81C4BC62A00624551 /* RouteBuddyTests.m */,
 				093711CA1C4BC62A00624551 /* Info.plist */,
+				4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */,
 			);
 			path = RouteBuddyTests;
 			sourceTree = "<group>";
@@ -310,6 +314,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEA96801C4E820100697ED8 /* EmergencyContactTests.m in Sources */,
+				4AEA967E1C4E81D400697ED8 /* EmergencyContact.m in Sources */,
 				093711C91C4BC62A00624551 /* RouteBuddyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
