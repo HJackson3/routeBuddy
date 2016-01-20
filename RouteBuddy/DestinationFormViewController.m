@@ -84,4 +84,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"selectLocation"]) {
+        LocationSelectViewController *controller = (LocationSelectViewController*)[segue destinationViewController];
+        controller.coordinate = self.coordinate;
+    }
+    
+}
+
 @end
