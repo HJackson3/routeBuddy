@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "EmergencyContactFormViewController.h"
-#import "EmergencyContactListViewController.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
-    EmergencyContactListViewController *controller = (EmergencyContactListViewController *)masterNavigationController.topViewController;
+    HomeViewController *controller = (HomeViewController *)masterNavigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }

@@ -1,27 +1,27 @@
 //
-//  DetailViewController.h
+//  DestinationFormViewController.h
 //  RouteBuddy
 //
-//  Created by Adam Lewis on 17/01/2016.
+//  Created by Adam Lewis on 19/01/2016.
 //  Copyright © 2016 The University of Sheffield. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "EmergencyContact.h"
 
-@interface EmergencyContactFormViewController : UIViewController
+#import "Destination.h"
+
+@interface DestinationFormViewController : UIViewController
 
 @property (weak, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-@property (strong, nonatomic) id emergencyContact;
+@property (strong, nonatomic) id destination;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *updateButton;
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
 
--(IBAction)updateEmergencyContact:(id)sender;
+-(IBAction)updateDestination:(id)sender;
 
 -(IBAction)insertNewObject:(id)sender;
 

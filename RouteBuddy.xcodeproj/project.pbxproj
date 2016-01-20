@@ -72,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +96,7 @@
 		0937119C1C4BC62900624551 = {
 			isa = PBXGroup;
 			children = (
+				09BD688B1C4E9FE400F3802B /* MapKit.framework */,
 				093711A71C4BC62900624551 /* RouteBuddy */,
 				093711C71C4BC62A00624551 /* RouteBuddyTests */,
 				093711D21C4BC62A00624551 /* RouteBuddyUITests */,
@@ -115,9 +117,14 @@
 		093711A71C4BC62900624551 /* RouteBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				09BD68721C4E7BEB00F3802B /* Destinations */,
 				0981001E1C4D16C400E9D221 /* Emergency Contacts */,
 				093711AB1C4BC62A00624551 /* AppDelegate.h */,
 				093711AC1C4BC62A00624551 /* AppDelegate.m */,
+				09BD68791C4E7DC800F3802B /* HomeViewController.h */,
+				09BD687A1C4E7DC800F3802B /* HomeViewController.m */,
+				09BD687F1C4E802300F3802B /* ManagedObjectContextViewController.h */,
+				09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */,
 				093711B71C4BC62A00624551 /* Main.storyboard */,
 				093711BA1C4BC62A00624551 /* Assets.xcassets */,
 				093711BC1C4BC62A00624551 /* LaunchScreen.storyboard */,
@@ -168,6 +175,23 @@
 				093711B51C4BC62A00624551 /* EmergencyContactFormViewController.m */,
 			);
 			name = "Emergency Contacts";
+			sourceTree = "<group>";
+		};
+		09BD68721C4E7BEB00F3802B /* Destinations */ = {
+			isa = PBXGroup;
+			children = (
+				09BD68731C4E7CA400F3802B /* Destination+CoreDataProperties.h */,
+				09BD68741C4E7CA400F3802B /* Destination+CoreDataProperties.m */,
+				09BD68751C4E7CA400F3802B /* Destination.h */,
+				09BD68761C4E7CA400F3802B /* Destination.m */,
+				09BD68821C4E956600F3802B /* DestinationListViewController.h */,
+				09BD68831C4E956600F3802B /* DestinationListViewController.m */,
+				09BD68851C4E957500F3802B /* DestinationFormViewController.h */,
+				09BD68861C4E957500F3802B /* DestinationFormViewController.m */,
+				09BD68881C4E9A5200F3802B /* LocationSelectViewController.h */,
+				09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */,
+			);
+			name = Destinations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,9 +324,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BD68771C4E7CA400F3802B /* Destination+CoreDataProperties.m in Sources */,
 				093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
+				09BD68841C4E956600F3802B /* DestinationListViewController.m in Sources */,
+				09BD68871C4E957500F3802B /* DestinationFormViewController.m in Sources */,
+				09BD687B1C4E7DC800F3802B /* HomeViewController.m in Sources */,
+				09BD68811C4E802300F3802B /* ManagedObjectContextViewController.m in Sources */,
+				09BD688A1C4E9A5200F3802B /* LocationSelectViewController.m in Sources */,
 				093711AD1C4BC62A00624551 /* AppDelegate.m in Sources */,
+				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
 				098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */,
