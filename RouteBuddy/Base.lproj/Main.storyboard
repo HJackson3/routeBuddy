@@ -322,21 +322,23 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-g0-yfB">
                                 <rect key="frame" x="0.0" y="64" width="600" height="427"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="Dz9-53-xwu" id="Yck-OT-BhP"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yao-0K-Skq">
-                                <rect key="frame" x="10" y="496" width="580" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yao-0K-Skq">
+                                <rect key="frame" x="10" y="498" width="580" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="haA-Lx-CZK"/>
                                 </constraints>
-                                <state key="normal" title="Get Current Location">
+                                <state key="normal" title="Current Location">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" title="Tap the map to select a location"/>
                                 <connections>
-                                    <action selector="getCurrentLocation:" destination="Dz9-53-xwu" eventType="touchUpInside" id="Lzc-SS-XQv"/>
+                                    <action selector="getCurrentLocation:" destination="Dz9-53-xwu" eventType="touchUpInside" id="AXE-i3-hs8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -363,7 +365,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Select a Location" id="gqw-ji-NOb">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Bob-cU-OiY"/>
                         <barButtonItem key="rightBarButtonItem" title="Select" id="f4D-75-I44" userLabel="Select Button">
                             <connections>
                                 <action selector="selectCurrentPinLocation:" destination="Dz9-53-xwu" id="M8V-h1-YZE"/>

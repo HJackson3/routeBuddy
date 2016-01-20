@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "Destination.h"
+#import "LocationSelectViewController.h"
 
 @interface DestinationFormViewController : UIViewController
 
 @property (weak, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (strong, nonatomic) id destination;
+
+@property CLLocationCoordinate2D coordinate;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *updateButton;
