@@ -11,4 +11,6 @@
 
 @interface HomeViewController : ManagedObjectContextViewController
 
+-(void) populateDestinations;
+
 @end
