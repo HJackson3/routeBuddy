@@ -26,6 +26,12 @@
     [super viewWillAppear:animated];
 }
 
+-(void)selectDestination:(Destination *)destination {
+    self.selectedDestination = destination;
+    [self performSegueWithIdentifier:@"activeRoute" sender:self];
+}
+
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -36,7 +42,7 @@
     
     if ([[segue identifier] isEqualToString:@"activeRoute"]) {
         ActiveRouteViewController *activeRouteController = (ActiveRouteViewController *) controller;
-        //controller.destination = selectedDestination;
+        activeRouteController.destination = self.selectedDestination;
     }
 }
 
@@ -70,6 +76,8 @@
 
 - (void)configureCell:(HomeViewDestinationCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Destination *destination = (Destination *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.controller = self;
+    cell.destination = destination;
     cell.title.text = [[destination valueForKey:@"name"] description];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     // TODO set image too

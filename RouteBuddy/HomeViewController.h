@@ -13,8 +13,11 @@
 
 @interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) Destination *selectedDestination;
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+-(void)selectDestination: (Destination*) destination;
 
 @end

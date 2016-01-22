@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "Destination.h"
+#import "HomeViewController.h"
+
+@class HomeViewController;
 
 @interface HomeViewDestinationCell : UITableViewCell
+
+@property (strong, nonatomic) HomeViewController *controller;
 
 @property (weak, nonatomic) Destination *destination;
 

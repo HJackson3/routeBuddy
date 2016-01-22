@@ -20,6 +20,7 @@
 }
 
 - (IBAction)selectDestination:(id)sender {
+    [self.controller selectDestination:self.destination];
 }
 
 @end

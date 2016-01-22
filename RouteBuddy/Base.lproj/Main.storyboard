@@ -112,9 +112,46 @@
                     <view key="view" contentMode="scaleToFill" id="Ixk-ba-NPK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SV3-Bg-maE">
+                                <rect key="frame" x="0.0" y="64" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YtF-tV-pJD"/>
+                                    <constraint firstAttribute="width" constant="200" id="mrH-Jo-K0T"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvL-Ix-wio">
+                                <rect key="frame" x="210" y="74" width="380" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="2Tz-PQ-u0g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qyE-AY-Jbg">
+                                <rect key="frame" x="0.0" y="264" width="600" height="336"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NvL-Ix-wio" firstAttribute="leading" secondItem="SV3-Bg-maE" secondAttribute="trailing" constant="10" id="Jtm-Wc-NWM"/>
+                            <constraint firstItem="SV3-Bg-maE" firstAttribute="leading" secondItem="Ixk-ba-NPK" secondAttribute="leading" id="KeP-Nf-DMA"/>
+                            <constraint firstItem="qyE-AY-Jbg" firstAttribute="leading" secondItem="Ixk-ba-NPK" secondAttribute="leading" id="VBy-e3-TYe"/>
+                            <constraint firstItem="SV3-Bg-maE" firstAttribute="top" secondItem="gAs-N9-SqN" secondAttribute="bottom" id="gCv-61-1s7"/>
+                            <constraint firstAttribute="trailing" secondItem="qyE-AY-Jbg" secondAttribute="trailing" id="rYV-gc-GBb"/>
+                            <constraint firstAttribute="trailing" secondItem="NvL-Ix-wio" secondAttribute="trailing" constant="10" id="tX6-Jm-Ipo"/>
+                            <constraint firstItem="bCf-CU-CK6" firstAttribute="top" secondItem="qyE-AY-Jbg" secondAttribute="bottom" id="u4Z-a9-hzW"/>
+                            <constraint firstItem="qyE-AY-Jbg" firstAttribute="top" secondItem="SV3-Bg-maE" secondAttribute="bottom" id="wso-Iu-Khm"/>
+                            <constraint firstItem="NvL-Ix-wio" firstAttribute="top" secondItem="gAs-N9-SqN" secondAttribute="bottom" constant="10" id="xHH-hz-YfU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Active Route" id="egt-m1-EfA"/>
+                    <connections>
+                        <outlet property="destinationImage" destination="SV3-Bg-maE" id="cmR-Bd-WTZ"/>
+                        <outlet property="destinationLabel" destination="NvL-Ix-wio" id="QnD-8m-kWE"/>
+                        <outlet property="mapView" destination="qyE-AY-Jbg" id="7cI-GA-yAX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVV-86-qR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
