@@ -14,20 +14,16 @@
 
 @implementation DestinationFormViewController
 
-#pragma mark - Managing the destination
-
-- (void)setDestination:(id)destination {
-    if (_destination != destination) {
-        _destination = destination;
-    }
-}
-
 - (void)configureView {
     self.updateButton.target = self;
     
     // Update the user interface for the detail item.
     if (self.destination) {
         self.nameField.text = [[self.destination valueForKey:@"name"] description];
+        self.coordinate = CLLocationCoordinate2DMake(
+            [(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],
+            [(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
+        NSLog(@"%f, %f", self.coordinate.latitude, self.coordinate.longitude);
         self.titleBar.title = @"Edit Destination";
         self.updateButton.action = @selector(updateDestination:);
         self.updateButton.title = @"Update";
@@ -60,6 +56,8 @@
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:self.nameField.text forKey:@"name"];
+    [newManagedObject setValue:[NSNumber numberWithDouble:self.coordinate.latitude] forKey:@"xLocation"];
+    [newManagedObject setValue:[NSNumber numberWithDouble:self.coordinate.longitude] forKey:@"yLocation"];
     
     // Save the context.
     NSError *error = nil;
