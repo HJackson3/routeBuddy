@@ -22,5 +22,8 @@
 
 - (IBAction)selectCurrentPinLocation:(id)sender;
 - (IBAction)getCurrentLocation:(id)sender;
+- (IBAction)onMapTap:(UITapGestureRecognizer *) recognizer;
+
+- (void)dropPinAtPoint:(CLLocationCoordinate2D) point withLabel:(NSString*) label;
 
 @end

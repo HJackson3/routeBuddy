@@ -18,15 +18,16 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     [self organiseLocationManager];
-    NSLog(@"%f %f", self.coordinate.latitude, self.coordinate.longitude);
     if (!(self.coordinate.latitude == 0 && self.coordinate.longitude == 0)) {
         [self centreOnSavedCoordinate:self.coordinate];
     }
-//    MKUserLocation *userLocation = self.mapView.userLocation;
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onMapTap:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    [self.mapView addGestureRecognizer:tapRecognizer];
 }
 
 -(void)organiseLocationManager {
-    
     if (self.locationManager==nil)
         self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -56,14 +57,10 @@
     [self.mapView setRegion:region animated:YES];
     
     // Drop a pin in user location
-    CLLocationCoordinate2D point = self.coordinate;
-    self.pin = [[MKPointAnnotation alloc] init];
-    [self.pin setCoordinate:point];
-    [self.pin setTitle:@"Saved Location"]; //You can set the subtitle too
-    [self.mapView addAnnotation:self.pin];
+    [self dropPinAtPoint:self.coordinate withLabel:@"Saved Location"];
 }
 
-- (IBAction)selectCurrentPinLocation:(id)sender {
+- (void)selectCurrentPinLocation:(id)sender {
     if (self.pin) {
         [self.navigationController popViewControllerAnimated:TRUE];
         DestinationFormViewController *controller = (DestinationFormViewController*) [self.navigationController topViewController];
@@ -71,21 +68,34 @@
     }
 }
 
-- (IBAction)getCurrentLocation:(id)sender {
+- (void)getCurrentLocation:(id)sender {
     // Center on the user location
     MKUserLocation *userLocation = self.mapView.userLocation;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([userLocation location].coordinate, 2000, 2000);
     [self.mapView setRegion:region animated:YES];
     
+    // Drop a pin in user location
+    [self dropPinAtPoint:[[userLocation location] coordinate] withLabel:@"Current Location"];
+}
+
+-(void)onMapTap:(UITapGestureRecognizer *)recognizer {
+    CGPoint point = [recognizer locationInView:self.mapView];
+    CLLocationCoordinate2D tapPoint = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    [self dropPinAtPoint:tapPoint withLabel:@"Selected Location"];
+}
+
+-(void)dropPinAtPoint:(CLLocationCoordinate2D)point withLabel:(NSString *)label {
     // Remove previous pin
     if (self.pin)
         [self.mapView removeAnnotations:[self.mapView annotations]];
     
-    // Drop a pin in user location
-    self.coordinate = [[userLocation location] coordinate];
+    // Set the coordinate
+    self.coordinate = point;
+    
+    // Add the new pin
     self.pin = [[MKPointAnnotation alloc] init];
     [self.pin setCoordinate:self.coordinate];
-    [self.pin setTitle:@"Current Location"];
+    [self.pin setTitle:label];
     [self.mapView addAnnotation:self.pin];
 }
 

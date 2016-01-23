@@ -17,6 +17,7 @@
 		093711BE1C4BC62A00624551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093711BC1C4BC62A00624551 /* LaunchScreen.storyboard */; };
 		093711C91C4BC62A00624551 /* RouteBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711C81C4BC62A00624551 /* RouteBuddyTests.m */; };
 		093711D41C4BC62A00624551 /* RouteBuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711D31C4BC62A00624551 /* RouteBuddyUITests.m */; };
+		097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097402451C513F490004FB2B /* ActiveRouteViewController.m */; };
 		098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */; };
 		098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
 		4AEA967E1C4E81D400697ED8 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
@@ -64,6 +65,8 @@
 		093711CF1C4BC62A00624551 /* RouteBuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteBuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		093711D31C4BC62A00624551 /* RouteBuddyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteBuddyUITests.m; sourceTree = "<group>"; };
 		093711D51C4BC62A00624551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		097402441C513F490004FB2B /* ActiveRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRouteViewController.h; sourceTree = "<group>"; };
+		097402451C513F490004FB2B /* ActiveRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRouteViewController.m; sourceTree = "<group>"; };
 		0981001F1C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmergencyContact+CoreDataProperties.h"; sourceTree = "<group>"; };
 		098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
 		098100211C4D174E00E9D221 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		093711A71C4BC62900624551 /* RouteBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				097402471C513F580004FB2B /* Active Route */,
 				09BD68721C4E7BEB00F3802B /* Destinations */,
 				0981001E1C4D16C400E9D221 /* Emergency Contacts */,
 				093711AB1C4BC62A00624551 /* AppDelegate.h */,
@@ -166,6 +170,15 @@
 				093711D51C4BC62A00624551 /* Info.plist */,
 			);
 			path = RouteBuddyUITests;
+			sourceTree = "<group>";
+		};
+		097402471C513F580004FB2B /* Active Route */ = {
+			isa = PBXGroup;
+			children = (
+				097402441C513F490004FB2B /* ActiveRouteViewController.h */,
+				097402451C513F490004FB2B /* ActiveRouteViewController.m */,
+			);
+			name = "Active Route";
 			sourceTree = "<group>";
 		};
 		0981001E1C4D16C400E9D221 /* Emergency Contacts */ = {
@@ -329,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */,
+				097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
 				4AEA968C1C4FC23600697ED8 /* DestinationListViewController.m in Sources */,
 				4AEA96891C4FC23600697ED8 /* Destination.m in Sources */,

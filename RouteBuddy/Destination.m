@@ -10,6 +10,11 @@
 
 @implementation Destination
 
-// Insert code here to add functionality to your managed object subclass
+-(CLLocationCoordinate2D)getCoordinate {
+    return CLLocationCoordinate2DMake(
+        [self.xLocation doubleValue],
+        [self.yLocation doubleValue]
+    );
+}
 
 @end

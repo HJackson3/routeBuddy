@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ManagedObjectContextViewController.h"
+#import "ActiveRouteViewController.h"
+#import "Destination.h"
+#import "HomeViewDestinationCell.h"
 
-@interface HomeViewController : ManagedObjectContextViewController
+@interface HomeViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) Destination *selectedDestination;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+-(void)selectDestination: (Destination*) destination;
 
 @end

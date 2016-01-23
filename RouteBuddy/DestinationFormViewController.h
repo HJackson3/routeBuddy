@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "Destination.h"
 #import "LocationSelectViewController.h"
@@ -28,5 +30,8 @@
 -(IBAction)updateDestination:(id)sender;
 
 -(IBAction)insertNewObject:(id)sender;
+
+- (IBAction)takePhoto:(id)sender;
+- (IBAction)selectFromGallery:(id)sender;
 
 @end
