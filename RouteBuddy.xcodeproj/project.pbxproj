@@ -28,6 +28,8 @@
 		09BD68871C4E957500F3802B /* DestinationFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68861C4E957500F3802B /* DestinationFormViewController.m */; };
 		09BD688A1C4E9A5200F3802B /* LocationSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */; };
 		09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BD688B1C4E9FE400F3802B /* MapKit.framework */; };
+		09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A71C53CB9100584A93 /* AVFoundation.framework */; };
+		09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A91C53CB9700584A93 /* AVKit.framework */; };
 		09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		09BD68881C4E9A5200F3802B /* LocationSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSelectViewController.h; sourceTree = "<group>"; };
 		09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSelectViewController.m; sourceTree = "<group>"; };
 		09BD688B1C4E9FE400F3802B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		09EE70A71C53CB9100584A93 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		09EE70A91C53CB9700584A93 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		09FF36D81C51C9AC00A5F91E /* HomeViewDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewDestinationCell.h; sourceTree = "<group>"; };
 		09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewDestinationCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */,
+				09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */,
 				09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +128,8 @@
 		0937119C1C4BC62900624551 = {
 			isa = PBXGroup;
 			children = (
+				09EE70A91C53CB9700584A93 /* AVKit.framework */,
+				09EE70A71C53CB9100584A93 /* AVFoundation.framework */,
 				09BD688B1C4E9FE400F3802B /* MapKit.framework */,
 				093711A71C4BC62900624551 /* RouteBuddy */,
 				093711C71C4BC62A00624551 /* RouteBuddyTests */,

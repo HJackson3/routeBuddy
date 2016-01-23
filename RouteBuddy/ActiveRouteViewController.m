@@ -20,6 +20,7 @@
     self.mapView.delegate = self;
     self.destinationLabel.text = self.destination.name;
     [self dropPinAtPoint:[self.destination getCoordinate] withLabel:@"Destination"];
+    self.alreadyConstructed = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +68,64 @@
     MKMapRect rect = MKMapRectMake(x, y, width, height);
     MKCoordinateRegion region = MKCoordinateRegionForMapRect(rect);
     [mapView setRegion:region animated:YES];
+    if(!self.alreadyConstructed)
+        [self constructRouteTo:[self.destination getCoordinate]];
+}
+
+-(MKDirections *)constructRouteTo:(CLLocationCoordinate2D)to {
+    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc]initWithCoordinate:to addressDictionary:NULL]];
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    [request setSource:[MKMapItem mapItemForCurrentLocation]];
+    [request setDestination:mapItem];
+    [request setTransportType:MKDirectionsTransportTypeWalking]; // This can be limited to automobile and walking directions.
+    [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        self.regionCenters = [[NSMutableArray alloc] init];
+        if (!error) {
+            for (MKRoute *route in [response routes]) {
+                [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
+                for (int i=0; i<route.polyline.pointCount-1; i++) {
+                    CLLocationCoordinate2D coord = MKCoordinateForMapPoint(route.polyline.points[i]);
+                    NSValue *value = [NSValue value:&coord withObjCType:@encode(CLLocationCoordinate2D)];
+                    [self.regionCenters insertObject:value atIndex: i];
+                }
+                self.alreadyConstructed = true;
+                self.regionIndex = 0;
+                for (int i=0; i<3; i++)
+                    [self registerRegionfromIndex:i];
+            }
+        }
+    }];
+    return directions;
+}
+
+-(void)registerRegionfromIndex:(int)index {
+    NSString* ident = [[NSString alloc] initWithFormat:@"%d", index];
+    CLLocationCoordinate2D coordinate;
+    [self.regionCenters[index] getValue:&coordinate];
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:100 identifier:ident];
+    [self.locationManager startMonitoringForRegion:region];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolyline *route = overlay;
+        MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
+        routeRenderer.strokeColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
+        routeRenderer.lineWidth = 5;
+        return routeRenderer;
+    }
+    else return nil;
+}
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    
+    // Check if in any other of locationManagers regions
+        //if not - notify
+        //else add next polyPoint as region
+    
+    
 }
 
 @end

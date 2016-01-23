@@ -14,6 +14,11 @@
 
 @implementation DestinationFormViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self configureView];
+}
+
 - (void)configureView {
     self.updateButton.target = self;
     
@@ -23,7 +28,6 @@
         self.coordinate = CLLocationCoordinate2DMake(
             [(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],
             [(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
-        NSLog(@"%f, %f", self.coordinate.latitude, self.coordinate.longitude);
         self.titleBar.title = @"Edit Destination";
         self.updateButton.action = @selector(updateDestination:);
         self.updateButton.title = @"Update";
@@ -79,10 +83,6 @@
 - (IBAction)selectFromGallery:(id)sender {
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self configureView];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

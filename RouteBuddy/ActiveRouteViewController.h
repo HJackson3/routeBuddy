@@ -20,9 +20,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *destinationImage;
 @property (strong, retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKPointAnnotation *pin;
+@property (strong, nonatomic) NSMutableArray *regionCenters;
+@property (atomic) int regionIndex;
+@property BOOL alreadyConstructed;
 
 - (void)dropPinAtPoint:(CLLocationCoordinate2D) point withLabel:(NSString*) label;
 
 -(void)organiseLocationManager;
+
+-(MKDirections*)constructRouteTo: (CLLocationCoordinate2D) to;
+
+-(void) makeRegionForLocationManager: (CLLocationManager *) manager fromIndex: (int) index;
 
 @end
