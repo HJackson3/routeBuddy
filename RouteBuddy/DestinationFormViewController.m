@@ -72,6 +72,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)takePhoto:(id)sender {
+    
+}
+
+- (IBAction)selectFromGallery:(id)sender {
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureView];

@@ -53,8 +53,19 @@
 }
 
 -(void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation*)userLocation {
-    // TODO show whole route as well
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([userLocation location].coordinate, 500, 500);
+    MKMapPoint p1 = MKMapPointForCoordinate([userLocation location].coordinate);
+    MKMapPoint p2 = MKMapPointForCoordinate([self.destination getCoordinate]);
+    double x = MIN(p1.x, p2.x);
+    double y = MIN(p1.y, p2.y);
+    double width = MAX(p1.x, p2.x) - x;
+    double height = MAX(p1.y, p2.y) - y;
+    double padding = 5.0;
+    x = x - (width / (padding * 2.0));
+    y = y - (height / (padding * 2.0));
+    width = width + (width / padding);
+    height = height + (height / padding);
+    MKMapRect rect = MKMapRectMake(x, y, width, height);
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect(rect);
     [mapView setRegion:region animated:YES];
 }
 
