@@ -20,12 +20,17 @@
 		097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097402451C513F490004FB2B /* ActiveRouteViewController.m */; };
 		098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */; };
 		098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
-		4AEA967E1C4E81D400697ED8 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
-		4AEA96801C4E820100697ED8 /* EmergencyContactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */; };
-		4AEA96891C4FC23600697ED8 /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA96821C4FC23600697ED8 /* Destination.m */; };
-		4AEA968A1C4FC23600697ED8 /* Destination+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA96841C4FC23600697ED8 /* Destination+CoreDataProperties.m */; };
-		4AEA968B1C4FC23600697ED8 /* DestinationFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA96861C4FC23600697ED8 /* DestinationFormViewController.m */; };
-		4AEA968C1C4FC23600697ED8 /* DestinationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA96881C4FC23600697ED8 /* DestinationListViewController.m */; };
+		09BD68771C4E7CA400F3802B /* Destination+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68741C4E7CA400F3802B /* Destination+CoreDataProperties.m */; };
+		09BD68781C4E7CA400F3802B /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68761C4E7CA400F3802B /* Destination.m */; };
+		09BD687B1C4E7DC800F3802B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD687A1C4E7DC800F3802B /* HomeViewController.m */; };
+		09BD68811C4E802300F3802B /* ManagedObjectContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */; };
+		09BD68841C4E956600F3802B /* DestinationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68831C4E956600F3802B /* DestinationListViewController.m */; };
+		09BD68871C4E957500F3802B /* DestinationFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68861C4E957500F3802B /* DestinationFormViewController.m */; };
+		09BD688A1C4E9A5200F3802B /* LocationSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */; };
+		09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BD688B1C4E9FE400F3802B /* MapKit.framework */; };
+		09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A71C53CB9100584A93 /* AVFoundation.framework */; };
+		09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A91C53CB9700584A93 /* AVKit.framework */; };
+		09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,15 +76,25 @@
 		098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
 		098100211C4D174E00E9D221 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
 		098100221C4D174E00E9D221 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
-		4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContactTests.m; sourceTree = "<group>"; };
-		4AEA96811C4FC23600697ED8 /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
-		4AEA96821C4FC23600697ED8 /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
-		4AEA96831C4FC23600697ED8 /* Destination+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Destination+CoreDataProperties.h"; sourceTree = "<group>"; };
-		4AEA96841C4FC23600697ED8 /* Destination+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Destination+CoreDataProperties.m"; sourceTree = "<group>"; };
-		4AEA96851C4FC23600697ED8 /* DestinationFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationFormViewController.h; sourceTree = "<group>"; };
-		4AEA96861C4FC23600697ED8 /* DestinationFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationFormViewController.m; sourceTree = "<group>"; };
-		4AEA96871C4FC23600697ED8 /* DestinationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationListViewController.h; sourceTree = "<group>"; };
-		4AEA96881C4FC23600697ED8 /* DestinationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationListViewController.m; sourceTree = "<group>"; };
+		09BD68731C4E7CA400F3802B /* Destination+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Destination+CoreDataProperties.h"; sourceTree = "<group>"; };
+		09BD68741C4E7CA400F3802B /* Destination+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Destination+CoreDataProperties.m"; sourceTree = "<group>"; };
+		09BD68751C4E7CA400F3802B /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
+		09BD68761C4E7CA400F3802B /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
+		09BD68791C4E7DC800F3802B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		09BD687A1C4E7DC800F3802B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		09BD687F1C4E802300F3802B /* ManagedObjectContextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectContextViewController.h; sourceTree = "<group>"; };
+		09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectContextViewController.m; sourceTree = "<group>"; };
+		09BD68821C4E956600F3802B /* DestinationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationListViewController.h; sourceTree = "<group>"; };
+		09BD68831C4E956600F3802B /* DestinationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationListViewController.m; sourceTree = "<group>"; };
+		09BD68851C4E957500F3802B /* DestinationFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationFormViewController.h; sourceTree = "<group>"; };
+		09BD68861C4E957500F3802B /* DestinationFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationFormViewController.m; sourceTree = "<group>"; };
+		09BD68881C4E9A5200F3802B /* LocationSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSelectViewController.h; sourceTree = "<group>"; };
+		09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSelectViewController.m; sourceTree = "<group>"; };
+		09BD688B1C4E9FE400F3802B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		09EE70A71C53CB9100584A93 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		09EE70A91C53CB9700584A93 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		09FF36D81C51C9AC00A5F91E /* HomeViewDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewDestinationCell.h; sourceTree = "<group>"; };
+		09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewDestinationCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */,
+				09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */,
+				09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +128,9 @@
 		0937119C1C4BC62900624551 = {
 			isa = PBXGroup;
 			children = (
+				09EE70A91C53CB9700584A93 /* AVKit.framework */,
+				09EE70A71C53CB9100584A93 /* AVFoundation.framework */,
+				09BD688B1C4E9FE400F3802B /* MapKit.framework */,
 				093711A71C4BC62900624551 /* RouteBuddy */,
 				093711C71C4BC62A00624551 /* RouteBuddyTests */,
 				093711D21C4BC62A00624551 /* RouteBuddyUITests */,
@@ -135,6 +156,12 @@
 				0981001E1C4D16C400E9D221 /* Emergency Contacts */,
 				093711AB1C4BC62A00624551 /* AppDelegate.h */,
 				093711AC1C4BC62A00624551 /* AppDelegate.m */,
+				09BD68791C4E7DC800F3802B /* HomeViewController.h */,
+				09BD687A1C4E7DC800F3802B /* HomeViewController.m */,
+				09FF36D81C51C9AC00A5F91E /* HomeViewDestinationCell.h */,
+				09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */,
+				09BD687F1C4E802300F3802B /* ManagedObjectContextViewController.h */,
+				09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */,
 				093711B71C4BC62A00624551 /* Main.storyboard */,
 				093711BA1C4BC62A00624551 /* Assets.xcassets */,
 				093711BC1C4BC62A00624551 /* LaunchScreen.storyboard */,
@@ -347,6 +374,8 @@
 				4AEA968C1C4FC23600697ED8 /* DestinationListViewController.m in Sources */,
 				4AEA96891C4FC23600697ED8 /* Destination.m in Sources */,
 				093711AD1C4BC62A00624551 /* AppDelegate.m in Sources */,
+				09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */,
+				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
 				098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */,
