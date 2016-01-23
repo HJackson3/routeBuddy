@@ -185,6 +185,7 @@
 			children = (
 				093711C81C4BC62A00624551 /* RouteBuddyTests.m */,
 				093711CA1C4BC62A00624551 /* Info.plist */,
+				4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */,
 			);
 			path = RouteBuddyTests;
 			sourceTree = "<group>";
@@ -373,17 +374,16 @@
 				093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */,
 				097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
-				09BD68841C4E956600F3802B /* DestinationListViewController.m in Sources */,
-				09BD68871C4E957500F3802B /* DestinationFormViewController.m in Sources */,
-				09BD687B1C4E7DC800F3802B /* HomeViewController.m in Sources */,
-				09BD68811C4E802300F3802B /* ManagedObjectContextViewController.m in Sources */,
-				09BD688A1C4E9A5200F3802B /* LocationSelectViewController.m in Sources */,
+				4AEA968C1C4FC23600697ED8 /* DestinationListViewController.m in Sources */,
+				4AEA96891C4FC23600697ED8 /* Destination.m in Sources */,
 				093711AD1C4BC62A00624551 /* AppDelegate.m in Sources */,
 				09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */,
 				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
 				098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */,
+				4AEA968B1C4FC23600697ED8 /* DestinationFormViewController.m in Sources */,
+				4AEA968A1C4FC23600697ED8 /* Destination+CoreDataProperties.m in Sources */,
 				093711B01C4BC62A00624551 /* RouteBuddy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEA96801C4E820100697ED8 /* EmergencyContactTests.m in Sources */,
+				4AEA967E1C4E81D400697ED8 /* EmergencyContact.m in Sources */,
 				093711C91C4BC62A00624551 /* RouteBuddyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
