@@ -78,9 +78,10 @@
     Destination *destination = (Destination *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.controller = self;
     cell.destination = destination;
-    cell.title.text = [[destination valueForKey:@"name"] description];
+    cell.title.text = destination.name;
+    cell.icon.image = [UIImage imageWithData:destination.image];
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    // TODO set image too
 }
 
 #pragma mark - Fetched results controller

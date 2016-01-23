@@ -28,6 +28,7 @@
         self.coordinate = CLLocationCoordinate2DMake(
             [(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],
             [(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
+        self.imageView.image = [UIImage imageWithData:self.destination.image];
         self.titleBar.title = @"Edit Destination";
         self.updateButton.action = @selector(updateDestination:);
         self.updateButton.title = @"Update";
@@ -37,12 +38,19 @@
         self.updateButton.action = @selector(insertNewObject:);
         [self clearFields];
     }
+    
+    if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+        [self.photoButton setEnabled:false];
 }
 
 -(void)updateDestination:(id)sender {
     // Update the object
     if (self.destination) {
-        [self.destination setValue:self.nameField.text forKey:@"name"];
+        // Set values
+        self.destination.name = self.nameField.text;
+        self.destination.xLocation = [NSNumber numberWithDouble: self.coordinate.latitude];
+        self.destination.yLocation = [NSNumber numberWithDouble: self.coordinate.longitude];
+        self.destination.image = UIImagePNGRepresentation(self.imageView.image);
     }
     // Go back
     [self.navigationController popViewControllerAnimated:YES];
@@ -55,13 +63,13 @@
 - (IBAction)insertNewObject:(id)sender {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    Destination *newManagedObject = (Destination *) [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    Destination *destination = (Destination *) [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:self.nameField.text forKey:@"name"];
-    [newManagedObject setValue:[NSNumber numberWithDouble:self.coordinate.latitude] forKey:@"xLocation"];
-    [newManagedObject setValue:[NSNumber numberWithDouble:self.coordinate.longitude] forKey:@"yLocation"];
+    // Set values
+    destination.name = self.nameField.text;
+    destination.xLocation = [NSNumber numberWithDouble: self.coordinate.latitude];
+    destination.yLocation = [NSNumber numberWithDouble: self.coordinate.longitude];
+    destination.image = UIImagePNGRepresentation(self.imageView.image);
     
     // Save the context.
     NSError *error = nil;
@@ -76,13 +84,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)takePhoto:(id)sender {
+- (void)takePhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
+    [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (IBAction)selectFromGallery:(id)sender {
+-(void)selectFromGallery:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -94,7 +123,6 @@
         LocationSelectViewController *controller = (LocationSelectViewController*)[segue destinationViewController];
         controller.coordinate = self.coordinate;
     }
-    
 }
 
 @end

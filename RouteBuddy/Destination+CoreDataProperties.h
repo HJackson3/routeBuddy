@@ -2,7 +2,7 @@
 //  Destination+CoreDataProperties.h
 //  RouteBuddy
 //
-//  Created by Adam Lewis on 19/01/2016.
+//  Created by Adam Lewis on 23/01/2016.
 //  Copyright © 2016 The University of Sheffield. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSNumber *xLocation;
 @property (nullable, nonatomic, retain) NSNumber *yLocation;
+@property (nullable, nonatomic, retain) NSData *image;
 
 @end
 

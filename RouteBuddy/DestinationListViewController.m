@@ -47,8 +47,8 @@
             [controller setDestination:NULL];
         } else {
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-            [controller setDestination:object];
+            Destination *destination = (Destination *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+            [controller setDestination:destination];
         }
         controller.fetchedResultsController = self.fetchedResultsController;
     }
