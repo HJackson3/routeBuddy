@@ -131,17 +131,38 @@
     }
     if (!inAnotherRegion) {
         // Notification for the user, prompt if they would like to call - remind them where they are headed.
+        self.notification = [[UILocalNotification alloc] init];
+        self.notification.alertTitle = nil;
+        self.notification.alertBody = nil;
+        self.notification.alertAction = nil;
+        self.notification.fireDate = nil;
     } else {
         // All is well, pop lowest numbered region, add next region from index
         if (![region.identifier isEqualToString:@"0"]) {
             int regIdent = [region.identifier intValue]; // TODO test to make sure this works
+            
             // Start monitoring the new set
             int newIndex = regIdent + 3; // New region is "Two regions" ahead of
             [self registerRegionFromIndex:newIndex];
+            
             // Stop monitoring the oldest
-            CLRegion *deletedRegion = NULL; //TODO make deleted region - is in monitoredRegions NSSet
+            CLRegion* deletedRegion = NULL;
+            int oldIndex = regIdent - 2;
+            for (CLCircularRegion* region in [manager monitoredRegions]) {
+                NSString* testIdent = [[NSString alloc]initWithFormat:@"%d",oldIndex];
+                if ([region.identifier isEqualToString:testIdent])  {
+                    deletedRegion = region;
+                }
+            }
             [manager stopMonitoringForRegion:deletedRegion];
         }
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    // This will kill any UILocalNotifications that exist
+    if (self.notification) {
+        self.notification = nil;
     }
 }
 
