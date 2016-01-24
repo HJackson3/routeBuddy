@@ -61,6 +61,7 @@
         UIViewController *controller = [masterNavigationController topViewController];
         if ([controller isKindOfClass:[ActiveRouteViewController class]]) {
             ActiveRouteViewController *activeRouteController = (ActiveRouteViewController*) controller;
+            [activeRouteController.mapView removeOverlays:activeRouteController.mapView.overlays];
             [activeRouteController constructRouteTo:[activeRouteController.destination getCoordinate]];
         }
     } else if (buttonIndex == 1) {
