@@ -56,13 +56,20 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != 1)
-        return;
-    UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
-    [masterNavigationController performSegueWithIdentifier:@"callContact" sender:self];
-    UIViewController *controller = [masterNavigationController topViewController];
-    if ([controller respondsToSelector:@selector(setManagedObjectContext:)])
-        [controller performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
+    if (buttonIndex == 0) {
+        UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
+        UIViewController *controller = [masterNavigationController topViewController];
+        if ([controller isKindOfClass:[ActiveRouteViewController class]]) {
+            ActiveRouteViewController *activeRouteController = (ActiveRouteViewController*) controller;
+            [activeRouteController constructRouteTo:[activeRouteController.destination getCoordinate]];
+        }
+    } else if (buttonIndex == 1) {
+        UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
+        [masterNavigationController performSegueWithIdentifier:@"callContact" sender:self];
+        UIViewController *controller = [masterNavigationController topViewController];
+        if ([controller respondsToSelector:@selector(setManagedObjectContext:)])
+            [controller performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
+    }
 }
 
 #pragma mark - Core Data stack

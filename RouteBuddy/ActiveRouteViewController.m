@@ -96,10 +96,10 @@
                     CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coord radius:100 identifier:[[NSString alloc] initWithFormat:@"%d", i]];
                     [self.regions insertObject:region atIndex: i];
                     
-                    // Add the new pin
-                    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
-                    [pin setCoordinate:coord];
-                    [self.mapView addAnnotation:pin];
+//                    // Add the new pin
+//                    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
+//                    [pin setCoordinate:coord];
+//                    [self.mapView addAnnotation:pin];
                 }
                 self.currentRegionIndex = 0;
                 for (int i=0; i<3; i++)
@@ -204,7 +204,7 @@
             }
         } else if (!self.notification) {
             // Start timer for notification
-            [self makeNotificationWithTitle:@"Not on route" withBody:@"Are you lost? Would you like to call someone?" andDisplayAfterTime:300];
+            [self makeNotificationWithTitle:@"Not on route" withBody:@"Are you lost? Would you like to call someone?" andDisplayAfterTime:2];
         }
     
     // Real
