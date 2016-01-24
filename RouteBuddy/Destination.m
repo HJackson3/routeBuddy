@@ -17,4 +17,8 @@
     );
 }
 
++(BOOL) isValidName: (NSString *) name andCoordinate: (CLLocationCoordinate2D) coord {
+    return ![name isEqualToString:@""] && coord.longitude != 0.0 && coord.latitude != 0.0;
+}
+
 @end

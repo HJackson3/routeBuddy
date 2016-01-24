@@ -49,6 +49,8 @@
 #pragma mark - Table View
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HomeViewDestinationCell *cell = (HomeViewDestinationCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self selectDestination:cell.destination];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -80,8 +82,6 @@
     cell.destination = destination;
     cell.title.text = destination.name;
     cell.icon.image = [UIImage imageWithData:destination.image];
-    
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 }
 
 #pragma mark - Fetched results controller

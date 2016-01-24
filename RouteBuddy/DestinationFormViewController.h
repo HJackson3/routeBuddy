@@ -15,7 +15,7 @@
 #import "Destination.h"
 #import "LocationSelectViewController.h"
 
-@interface DestinationFormViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DestinationFormViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
@@ -29,11 +29,17 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
 
+-(void) dismissKeyboards;
+
 -(IBAction)updateDestination:(id)sender;
 
 -(IBAction)insertNewObject:(id)sender;
 
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectFromGallery:(id)sender;
+
+-(IBAction)back:(id)sender;
+
+-(BOOL) isValidForm;
 
 @end

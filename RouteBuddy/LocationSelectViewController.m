@@ -57,7 +57,11 @@
     [self.mapView setRegion:region animated:YES];
     
     // Drop a pin in user location
-    [self dropPinAtPoint:self.coordinate withLabel:@"Saved Location"];
+    // Drop a pin in user location
+    if ([self.name isEqualToString:@""])
+        [self dropPinAtPoint:self.coordinate withLabel:@"Saved Location"];
+    else
+        [self dropPinAtPoint:self.coordinate withLabel:self.name];
 }
 
 - (void)selectCurrentPinLocation:(id)sender {
@@ -75,13 +79,19 @@
     [self.mapView setRegion:region animated:YES];
     
     // Drop a pin in user location
-    [self dropPinAtPoint:[[userLocation location] coordinate] withLabel:@"Current Location"];
+    if ([self.name isEqualToString:@""])
+        [self dropPinAtPoint:[[userLocation location] coordinate] withLabel:@"Current Location"];
+    else
+        [self dropPinAtPoint:[[userLocation location] coordinate] withLabel:self.name];
 }
 
 -(void)onMapTap:(UITapGestureRecognizer *)recognizer {
     CGPoint point = [recognizer locationInView:self.mapView];
     CLLocationCoordinate2D tapPoint = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
-    [self dropPinAtPoint:tapPoint withLabel:@"Selected Location"];
+    if ([self.name isEqualToString:@""])
+        [self dropPinAtPoint:tapPoint withLabel:@"Selected Location"];
+    else
+        [self dropPinAtPoint:tapPoint withLabel:self.name];
 }
 
 -(void)dropPinAtPoint:(CLLocationCoordinate2D)point withLabel:(NSString *)label {
@@ -97,6 +107,11 @@
     [self.pin setCoordinate:self.coordinate];
     [self.pin setTitle:label];
     [self.mapView addAnnotation:self.pin];
+    [self.mapView selectAnnotation:self.pin animated:YES];
+}
+
+-(void)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

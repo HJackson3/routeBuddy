@@ -18,13 +18,13 @@
 		093711C91C4BC62A00624551 /* RouteBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711C81C4BC62A00624551 /* RouteBuddyTests.m */; };
 		093711D41C4BC62A00624551 /* RouteBuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711D31C4BC62A00624551 /* RouteBuddyUITests.m */; };
 		097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097402451C513F490004FB2B /* ActiveRouteViewController.m */; };
-		098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */; };
 		098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
 		099FE4411C54F30900DA04F3 /* DestinationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68831C4E956600F3802B /* DestinationListViewController.m */; };
 		099FE4421C54F30D00DA04F3 /* DestinationFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68861C4E957500F3802B /* DestinationFormViewController.m */; };
 		099FE4431C54F31000DA04F3 /* LocationSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */; };
 		099FE4441C54F31500DA04F3 /* ManagedObjectContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */; };
 		099FE4451C54F31E00DA04F3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD687A1C4E7DC800F3802B /* HomeViewController.m */; };
+		099FE4481C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 099FE4471C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m */; };
 		09BD68781C4E7CA400F3802B /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68761C4E7CA400F3802B /* Destination.m */; };
 		09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BD688B1C4E9FE400F3802B /* MapKit.framework */; };
 		09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A71C53CB9100584A93 /* AVFoundation.framework */; };
@@ -72,10 +72,10 @@
 		093711D51C4BC62A00624551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		097402441C513F490004FB2B /* ActiveRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRouteViewController.h; sourceTree = "<group>"; };
 		097402451C513F490004FB2B /* ActiveRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRouteViewController.m; sourceTree = "<group>"; };
-		0981001F1C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmergencyContact+CoreDataProperties.h"; sourceTree = "<group>"; };
-		098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
 		098100211C4D174E00E9D221 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
 		098100221C4D174E00E9D221 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
+		099FE4461C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmergencyContact+CoreDataProperties.h"; sourceTree = "<group>"; };
+		099FE4471C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
 		09BD68751C4E7CA400F3802B /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
 		09BD68761C4E7CA400F3802B /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
 		09BD68791C4E7DC800F3802B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 		0981001E1C4D16C400E9D221 /* Emergency Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				0981001F1C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.h */,
-				098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */,
+				099FE4461C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.h */,
+				099FE4471C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m */,
 				098100211C4D174E00E9D221 /* EmergencyContact.h */,
 				098100221C4D174E00E9D221 /* EmergencyContact.m */,
 				093711B11C4BC62A00624551 /* EmergencyContactListViewController.h */,
@@ -306,6 +306,7 @@
 				TargetAttributes = {
 					093711A41C4BC62900624551 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 54W85G3L3F;
 					};
 					093711C31C4BC62A00624551 = {
 						CreatedOnToolsVersion = 7.2;
@@ -375,6 +376,7 @@
 				099FE4421C54F30D00DA04F3 /* DestinationFormViewController.m in Sources */,
 				099FE4411C54F30900DA04F3 /* DestinationListViewController.m in Sources */,
 				09EE70B01C5412FB00584A93 /* Destination+CoreDataProperties.m in Sources */,
+				099FE4481C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m in Sources */,
 				093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */,
 				097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
@@ -383,7 +385,6 @@
 				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
-				098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */,
 				093711B01C4BC62A00624551 /* RouteBuddy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,11 +526,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RouteBuddy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.sheffield.RouteBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -537,11 +541,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RouteBuddy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.sheffield.RouteBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

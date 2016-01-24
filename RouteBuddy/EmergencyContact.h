@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(BOOL) isValidName:(NSString*)name AndPhoneNumber:(NSString*)phoneNumber;
 
+-(NSURL*)getPhoneNSURL;
+
 @end
 
 NS_ASSUME_NONNULL_END

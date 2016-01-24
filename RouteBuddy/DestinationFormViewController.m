@@ -16,18 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureView];
-}
-
-- (void)configureView {
+    
     self.updateButton.target = self;
     
     // Update the user interface for the detail item.
     if (self.destination) {
         self.nameField.text = [[self.destination valueForKey:@"name"] description];
         self.coordinate = CLLocationCoordinate2DMake(
-            [(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],
-            [(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
+                                                     [(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],
+                                                     [(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
         self.imageView.image = [UIImage imageWithData:self.destination.image];
         self.titleBar.title = @"Edit Destination";
         self.updateButton.action = @selector(updateDestination:);
@@ -39,11 +36,28 @@
         [self clearFields];
     }
     
-    if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
-        [self.photoButton setEnabled:false];
+    // Disable photo button if no camera available
+    //if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+        //[self.photoButton setEnabled:false];
+    
+    // Dismiss text fields on tap
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboards)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self dismissKeyboards];
+    return NO;
+}
+
+-(void)dismissKeyboards {
+    [self.nameField resignFirstResponder];
 }
 
 -(void)updateDestination:(id)sender {
+    if (![self isValidForm])
+        return;
+    
     // Update the object
     if (self.destination) {
         // Set values
@@ -61,6 +75,9 @@
 }
 
 - (IBAction)insertNewObject:(id)sender {
+    if (![self isValidForm])
+        return;
+    
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     Destination *destination = (Destination *) [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
@@ -85,12 +102,17 @@
 }
 
 - (void)takePhoto:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    [self presentViewController:picker animated:YES completion:NULL];
+        [self presentViewController:picker animated:YES completion:NULL];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"You don't have a camera on your device." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 -(void)selectFromGallery:(id)sender {
@@ -122,6 +144,21 @@
     if ([[segue identifier] isEqualToString:@"selectLocation"]) {
         LocationSelectViewController *controller = (LocationSelectViewController*)[segue destinationViewController];
         controller.coordinate = self.coordinate;
+        controller.name = self.nameField.text;
+    }
+}
+
+-(void)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(BOOL)isValidForm {
+    if ([Destination isValidName:self.nameField.text andCoordinate:self.coordinate])
+        return true;
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid input" message:@"Please make sure you have entered a valid name and selected a location." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
     }
 }
 

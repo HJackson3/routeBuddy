@@ -14,9 +14,11 @@
 @interface LocationSelectViewController : ManagedObjectContextViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @property (strong, retain) CLLocationManager *locationManager;
 @property CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic) MKPointAnnotation *pin;
+@property (weak, nonatomic) NSString *name;
 
 -(void)organiseLocationManager;
 
@@ -25,5 +27,7 @@
 - (IBAction)onMapTap:(UITapGestureRecognizer *) recognizer;
 
 - (void)dropPinAtPoint:(CLLocationCoordinate2D) point withLabel:(NSString*) label;
+
+-(IBAction)back:(id)sender;
 
 @end

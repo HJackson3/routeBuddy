@@ -11,16 +11,19 @@
 @implementation EmergencyContact
 
 +(BOOL)isValidName:(NSString *)name AndPhoneNumber:(NSString *)phoneNumber {
-//    Boolean valid = true;
     if ([name isEqualToString:@""]) {
         return false;
     }else if ([phoneNumber isEqualToString:@""]) {
         return false;
-    }else if ([phoneNumber intValue] == 0) {
+    }else if ([phoneNumber intValue] == 0) { // TODO Maybe regex to avoid silly input
         return false;
     } else {
         return true;
     }
+}
+
+-(NSURL*)getPhoneNSURL {
+    return [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",self.phoneNumber]];
 }
 
 @end

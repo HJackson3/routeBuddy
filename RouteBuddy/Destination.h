@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Destination : NSManagedObject
 
++(BOOL) isValidName: (NSString *) name andCoordinate: (CLLocationCoordinate2D) coord;
+
 -(CLLocationCoordinate2D) getCoordinate;
 
 @end

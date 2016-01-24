@@ -22,31 +22,29 @@
     }
 }
 
-- (void)configureView {
-    [self.phoneNumberField setKeyboardType:UIKeyboardTypePhonePad];
-    self.updateButton.target = self;
-    
-    // Update the user interface for the detail item.
-    if (self.emergencyContact) {
-        self.nameField.text = [[self.emergencyContact valueForKey:@"name"] description];
-        self.phoneNumberField.text = [[self.emergencyContact valueForKey:@"phoneNumber"] description];
-        self.titleBar.title = @"Edit Emergency Contact";
-        self.updateButton.action = @selector(updateEmergencyContact:);
-        self.updateButton.title = @"Update";
-    } else {
-        self.titleBar.title = @"New Emergency Contact";
-        self.updateButton.title = @"Save";
-        self.updateButton.action = @selector(insertNewObject:);
-        [self clearFields];
-    }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self dismissKeyboards];
+    return NO;
+}
+
+-(void)dismissKeyboards {
+    [self.nameField resignFirstResponder];
+    [self.phoneNumberField resignFirstResponder];
 }
 
 -(void)updateEmergencyContact:(id)sender {
+    if (![self isValidForm])
+        return;
+    
     // Update the object
     if (self.emergencyContact) {
-        [self.emergencyContact setValue:self.nameField.text forKey:@"name"];
-        [self.emergencyContact setValue:self.phoneNumberField.text forKey:@"phoneNumber"];
+        // Set the values
+        self.emergencyContact.name = self.nameField.text;
+        self.emergencyContact.phoneNumber = self.phoneNumberField.text;
+        self.emergencyContact.priority = [NSNumber numberWithInt:0];
+        self.emergencyContact.image = UIImagePNGRepresentation(self.icon.image);
     }
+    
     // Go back
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -56,16 +54,19 @@
     [self.phoneNumberField setText:@""];
 }
 
-- (IBAction)insertNewObject:(id)sender {
+- (void)insertNewObject:(id)sender {
+    if (![self isValidForm])
+        return;
+    
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    EmergencyContact *newManagedObject = (EmergencyContact *) [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    EmergencyContact *emergencyContact = (EmergencyContact *) [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:self.nameField.text forKey:@"name"];
-    [newManagedObject setValue:self.phoneNumberField.text forKey:@"phoneNumber"];
-    [newManagedObject setValue:[NSNumber numberWithInt:1] forKey:@"priority"];
+    // Set the values
+    emergencyContact.name = self.nameField.text;
+    emergencyContact.phoneNumber = self.phoneNumberField.text;
+    emergencyContact.priority = [NSNumber numberWithInt:0];
+    emergencyContact.image = UIImagePNGRepresentation(self.icon.image);
     
     // Save the context.
     NSError *error = nil;
@@ -80,14 +81,83 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(BOOL)isValidForm {
+    if ([EmergencyContact isValidName:self.nameField.text AndPhoneNumber:self.phoneNumberField.text])
+        return true;
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid input" message:@"Please make sure name and phone number fields are filled with valid information." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureView];
+    
+    [self.phoneNumberField setKeyboardType:UIKeyboardTypePhonePad];
+    self.updateButton.target = self;
+    
+    // Update the user interface for the detail item.
+    if (self.emergencyContact) {
+        self.nameField.text = self.emergencyContact.name;
+        self.phoneNumberField.text = self.emergencyContact.phoneNumber;
+        self.icon.image = [UIImage imageWithData:self.emergencyContact.image];
+        self.titleBar.title = @"Edit Emergency Contact";
+        self.updateButton.action = @selector(updateEmergencyContact:);
+        self.updateButton.title = @"Update";
+    } else {
+        self.titleBar.title = @"New Emergency Contact";
+        self.updateButton.title = @"Save";
+        self.updateButton.action = @selector(insertNewObject:);
+        [self clearFields];
+    }
+    
+    // Dismiss text fields on tap
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboards)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)takePhoto:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"You don't have a camera on your device." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)selectFromGallery:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.icon.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

@@ -2,7 +2,7 @@
 //  EmergencyContact+CoreDataProperties.m
 //  RouteBuddy
 //
-//  Created by Adam Lewis on 18/01/2016.
+//  Created by Adam Lewis on 24/01/2016.
 //  Copyright © 2016 The University of Sheffield. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,5 +16,6 @@
 @dynamic name;
 @dynamic phoneNumber;
 @dynamic priority;
+@dynamic image;
 
 @end

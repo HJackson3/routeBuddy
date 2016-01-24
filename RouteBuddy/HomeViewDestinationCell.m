@@ -19,8 +19,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)selectDestination:(id)sender {
-    [self.controller selectDestination:self.destination];
-}
-
 @end

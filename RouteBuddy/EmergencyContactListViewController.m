@@ -18,9 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    //self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    
     [self.addButton setTarget:self];
     [self.addButton setAction:@selector(insertNewObject:)];
 }
@@ -47,7 +44,7 @@
             [controller setEmergencyContact:NULL];
         } else {
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+            EmergencyContact *object = (EmergencyContact*)[[self fetchedResultsController] objectAtIndexPath:indexPath];
             [controller setEmergencyContact:object];
         }
         controller.fetchedResultsController = self.fetchedResultsController;

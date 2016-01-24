@@ -7,12 +7,13 @@
         <attribute name="yLocation" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="EmergencyContact" representedClassName="EmergencyContact" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
         <element name="Destination" positionX="-63" positionY="9" width="128" height="105"/>
-        <element name="EmergencyContact" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="EmergencyContact" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
