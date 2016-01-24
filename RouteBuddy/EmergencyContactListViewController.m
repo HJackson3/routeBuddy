@@ -95,8 +95,8 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    EmergencyContact *object = (EmergencyContact*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = object.name;
 }
 
 #pragma mark - Fetched results controller

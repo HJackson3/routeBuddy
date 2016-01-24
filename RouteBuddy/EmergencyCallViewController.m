@@ -1,21 +1,25 @@
 //
-//  HomeViewController.m
+//  EmergencyCallViewController.m
 //  RouteBuddy
 //
-//  Created by Adam Lewis on 19/01/2016.
+//  Created by Adam Lewis on 24/01/2016.
 //  Copyright © 2016 The University of Sheffield. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "EmergencyCallViewController.h"
 
-@interface HomeViewController ()
+@interface EmergencyCallViewController ()
 
 @end
 
-@implementation HomeViewController
+@implementation EmergencyCallViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -23,36 +27,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+-(void)insertNewObject:(id) sender {
+    [self performSegueWithIdentifier:@"editEmergencyContact" sender:sender];
 }
 
--(void)selectDestination:(Destination *)destination {
-    self.selectedDestination = destination;
-    [self performSegueWithIdentifier:@"activeRoute" sender:self];
+-(void)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-#pragma mark - Segues
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Send the context
-    UIViewController *controller = [segue destinationViewController];
-    if ([controller respondsToSelector:@selector(setManagedObjectContext:)])
-        [controller performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
-    
-    if ([[segue identifier] isEqualToString:@"activeRoute"]) {
-        ActiveRouteViewController *activeRouteController = (ActiveRouteViewController *) controller;
-        activeRouteController.destination = self.selectedDestination;
-    }
-}
 
 #pragma mark - Table View
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeViewDestinationCell *cell = (HomeViewDestinationCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [self selectDestination:cell.destination];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EmergencyCallTableViewCell *cell = (EmergencyCallTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    // Perform the call
+    [[UIApplication sharedApplication] openURL:[cell.emergencyContact getPhoneNSURL]];
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.fetchedResultsController sections] count];
@@ -64,25 +56,37 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeViewDestinationCell *cell = (HomeViewDestinationCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
     return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-// Do nothing
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
 }
 
-- (void)configureCell:(HomeViewDestinationCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Destination *destination = (Destination *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.controller = self;
-    cell.destination = destination;
-    cell.title.text = destination.name;
-    cell.icon.image = [UIImage imageWithData:destination.image];
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    EmergencyContact *object = (EmergencyContact*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    EmergencyCallTableViewCell *ecCell = (EmergencyCallTableViewCell *)cell;
+    ecCell.contactNameLabel.text = object.name;
+    ecCell.contactImage.image = [UIImage imageWithData:object.image];
+    ecCell.emergencyContact = object;
 }
 
 #pragma mark - Fetched results controller
@@ -95,20 +99,20 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Destination" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EmergencyContact" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
     
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Destinations"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"EmergencyCalls"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     

@@ -20,6 +20,9 @@
     UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
     HomeViewController *controller = (HomeViewController *)masterNavigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
     return YES;
 }
 
@@ -45,6 +48,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Off Route" message:@"You appear to be off route. Would you like to call someone?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
+        UIViewController *controller = [masterNavigationController topViewController];
+        if ([controller isKindOfClass:[ActiveRouteViewController class]]) {
+            ActiveRouteViewController *activeRouteController = (ActiveRouteViewController*) controller;
+            [activeRouteController constructRouteTo:[activeRouteController.destination getCoordinate]];
+        }
+    } else if (buttonIndex == 1) {
+        UINavigationController *masterNavigationController = (UINavigationController *) self.window.rootViewController;
+        [masterNavigationController performSegueWithIdentifier:@"callContact" sender:self];
+        UIViewController *controller = [masterNavigationController topViewController];
+        if ([controller respondsToSelector:@selector(setManagedObjectContext:)])
+            [controller performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
+    }
 }
 
 #pragma mark - Core Data stack

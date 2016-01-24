@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [self organiseLocationManager];
     self.mapView.delegate = self;
     self.destinationLabel.text = self.destination.name;
@@ -55,22 +56,25 @@
 }
 
 -(void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation*)userLocation {
-    MKMapPoint p1 = MKMapPointForCoordinate([userLocation location].coordinate);
-    MKMapPoint p2 = MKMapPointForCoordinate([self.destination getCoordinate]);
-    double x = MIN(p1.x, p2.x);
-    double y = MIN(p1.y, p2.y);
-    double width = MAX(p1.x, p2.x) - x;
-    double height = MAX(p1.y, p2.y) - y;
-    double padding = 4.0;
-    x = x - (width / (padding * 2.0));
-    y = y - (height / (padding * 2.0));
-    width = width + (width / padding);
-    height = height + (height / padding);
-    MKMapRect rect = MKMapRectMake(x, y, width, height);
-    MKCoordinateRegion region = MKCoordinateRegionForMapRect(rect);
-    [mapView setRegion:region animated:YES];
-    if(!self.alreadyConstructed)
+    if(!self.alreadyConstructed) {
+        MKMapPoint p1 = MKMapPointForCoordinate([userLocation location].coordinate);
+        MKMapPoint p2 = MKMapPointForCoordinate([self.destination getCoordinate]);
+        double x = MIN(p1.x, p2.x);
+        double y = MIN(p1.y, p2.y);
+        double width = MAX(p1.x, p2.x) - x;
+        double height = MAX(p1.y, p2.y) - y;
+        double padding = 4.0;
+        x = x - (width / (padding * 2.0));
+        y = y - (height / (padding * 2.0));
+        width = width + (width / padding);
+        height = height + (height / padding);
+        MKMapRect rect = MKMapRectMake(x, y, width, height);
+        MKCoordinateRegion region = MKCoordinateRegionForMapRect(rect);
+        [mapView setRegion:region animated:YES];
+        self.alreadyConstructed = true;
         [self constructRouteTo:[self.destination getCoordinate]];
+    }
+    [self checkRouteWithUserLocation: [userLocation location].coordinate];
 }
 
 -(MKDirections *)constructRouteTo:(CLLocationCoordinate2D)to {
@@ -82,31 +86,38 @@
     [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
     MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-        self.regionCenters = [[NSMutableArray alloc] init];
+        self.regions = [[NSMutableArray alloc] init];
+        self.monitoredRegions = [[NSMutableArray alloc] init];
         if (!error) {
             for (MKRoute *route in [response routes]) {
                 [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
                 for (int i=0; i<route.polyline.pointCount-1; i++) {
                     CLLocationCoordinate2D coord = MKCoordinateForMapPoint(route.polyline.points[i]);
-                    NSValue *value = [NSValue value:&coord withObjCType:@encode(CLLocationCoordinate2D)];
-                    [self.regionCenters insertObject:value atIndex: i];
+                    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coord radius:100 identifier:[[NSString alloc] initWithFormat:@"%d", i]];
+                    [self.regions insertObject:region atIndex: i];
+                    
+//                    // Add the new pin
+//                    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
+//                    [pin setCoordinate:coord];
+//                    [self.mapView addAnnotation:pin];
                 }
-                self.alreadyConstructed = true;
-                self.regionIndex = 0;
+                self.currentRegionIndex = 0;
                 for (int i=0; i<3; i++)
-                    [self registerRegionFromIndex:i];
+                     [self pushRegionFromIndex:i];
             }
         }
     }];
     return directions;
 }
 
--(void)registerRegionFromIndex:(int)index {
-    NSString* ident = [[NSString alloc] initWithFormat:@"%d", index];
-    CLLocationCoordinate2D coordinate;
-    [self.regionCenters[index] getValue:&coordinate];
-    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:100 identifier:ident];
-    [self.locationManager startMonitoringForRegion:region];
+-(void)pushRegionFromIndex:(int)index {
+    CLCircularRegion *region = [self.regions objectAtIndex:index];
+    int pushIndex = (int) [self.monitoredRegions count];
+    [self.monitoredRegions insertObject:region atIndex:pushIndex];
+}
+
+-(void)popRegionAtIndex:(int)index {
+    [self.monitoredRegions removeObjectAtIndex:index];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
@@ -120,50 +131,89 @@
     else return nil;
 }
 
--(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    
-    // Check if in any other of locationManagers regions
-    BOOL inAnotherRegion = false;
-    for (CLCircularRegion* region in [manager monitoredRegions]) {
-        if ([region containsCoordinate:manager.location.coordinate]) {
-            inAnotherRegion = true;
-        }
-    }
-    if (!inAnotherRegion) {
-        // Notification for the user, prompt if they would like to call - remind them where they are headed.
-        self.notification = [[UILocalNotification alloc] init];
-        self.notification.alertTitle = nil;
-        self.notification.alertBody = nil;
-        self.notification.alertAction = nil;
-        self.notification.fireDate = nil;
-    } else {
-        // All is well, pop lowest numbered region, add next region from index
-        if (![region.identifier isEqualToString:@"0"]) {
-            int regIdent = [region.identifier intValue]; // TODO test to make sure this works
-            
-            // Start monitoring the new set
-            int newIndex = regIdent + 3; // New region is "Two regions" ahead of
-            [self registerRegionFromIndex:newIndex];
-            
-            // Stop monitoring the oldest
-            CLRegion* deletedRegion = NULL;
-            int oldIndex = regIdent - 2;
-            for (CLCircularRegion* region in [manager monitoredRegions]) {
-                NSString* testIdent = [[NSString alloc]initWithFormat:@"%d",oldIndex];
-                if ([region.identifier isEqualToString:testIdent])  {
-                    deletedRegion = region;
-                }
-            }
-            [manager stopMonitoringForRegion:deletedRegion];
-        }
-    }
+// Location manager did enter / exit region adds a padding of 200m for the region which is too inaccurate for our purpose.
+//-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)exitedRegion {
+//    NSLog(@"Did exit region %@", exitedRegion.identifier);
+//    
+//    // Check if in any other of locationManagers regions
+//    BOOL inAnotherRegion = false;
+//    for (CLCircularRegion* region in [manager monitoredRegions]) {
+//        NSLog(@"Region %@ is still being monitored", region.identifier);
+//        [self drawRegionOnMap:self.mapView withCoordinate:region.center andRadius:region.radius];
+//        if ([region containsCoordinate:manager.location.coordinate]) {
+//            NSLog(@"Still in region %@", region.identifier);
+//            inAnotherRegion = true;
+//        }
+//    }
+//    if (!inAnotherRegion) {
+//        // Notification for the user, prompt if they would like to call - remind them where they are headed.
+//        if (!self.notification) {
+//            [self makeNotificationWithTitle:@"Not on route" withBody:@"Are you lost? Would you like to call someone?" andDisplayAfterTime:5];
+//        }
+//    } else {
+//        // All is well, pop lowest numbered region, add next region from index
+//        if (![exitedRegion.identifier isEqualToString:@"0"]) {
+//            int regIdent = [exitedRegion.identifier intValue]; // TODO test to make sure this works
+//            
+//            // Start monitoring the new set
+//            int newIndex = regIdent + 3; // New region is "Two regions" ahead of
+//            [self registerRegionFromIndex:newIndex];
+//            
+//            // Stop monitoring the oldest
+//            CLRegion* deletedRegion = NULL;
+//            int oldIndex = regIdent - 2;
+//            for (CLCircularRegion* region in [manager monitoredRegions]) {
+//                NSString* testIdent = [[NSString alloc]initWithFormat:@"%d",oldIndex];
+//                if ([region.identifier isEqualToString:testIdent])  {
+//                    deletedRegion = region;
+//                }
+//            }
+//            [manager stopMonitoringForRegion:deletedRegion];
+//        }
+//    }
+//}
+
+// Location manager did enter / exit region adds a padding of 200m for the region which is too inaccurate for our purpose.
+//-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+//    NSLog(@"Did enter region %@", region.identifier);
+//    // This will kill any UILocalNotifications that exist
+//    if (self.notification) {
+//        [[UIApplication sharedApplication] cancelLocalNotification:self.notification];
+//        self.notification = nil;
+//    }
+//}
+
+-(void)makeNotificationWithTitle:(NSString *)title withBody:(NSString *)body andDisplayAfterTime:(int)seconds {
+    self.notification = [[UILocalNotification alloc] init];
+    self.notification.alertTitle = title;
+    self.notification.alertBody = body;
+    self.notification.timeZone = [NSTimeZone defaultTimeZone];
+    self.notification.alertAction = nil;
+    self.notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
+    [[UIApplication sharedApplication] scheduleLocalNotification:self.notification];
 }
 
--(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    // This will kill any UILocalNotifications that exist
-    if (self.notification) {
-        self.notification = nil;
-    }
+-(void)checkRouteWithUserLocation:(CLLocationCoordinate2D)location {
+    // Approx
+    for (CLCircularRegion *region in self.regions)
+        if ([region containsCoordinate:location]) {
+            // Stop timer for notification
+            if (self.notification) {
+                [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                self.notification = nil;
+            }
+        } else if (!self.notification) {
+            // Start timer for notification
+            [self makeNotificationWithTitle:@"Not on route" withBody:@"Are you lost? Would you like to call someone?" andDisplayAfterTime:2];
+        }
+    
+    // Real
+    // for each region as r
+        // if is inside r
+            // set bool to true and break from loop (for efficiency)
+            // keep hold of r
+    //
+    
 }
 
 @end

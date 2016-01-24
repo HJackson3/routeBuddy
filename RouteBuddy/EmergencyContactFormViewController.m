@@ -94,8 +94,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the keyboard type
     [self.phoneNumberField setKeyboardType:UIKeyboardTypePhonePad];
+    
+    // Link the update button action
     self.updateButton.target = self;
+    
+    // Capitalise first letter of word
+    self.nameField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     
     // Update the user interface for the detail item.
     if (self.emergencyContact) {
