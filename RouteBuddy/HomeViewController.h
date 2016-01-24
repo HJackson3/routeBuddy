@@ -16,6 +16,7 @@
 @property (strong, nonatomic) Destination *selectedDestination;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *EmergencyContactsfetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 -(void)selectDestination: (Destination*) destination;
