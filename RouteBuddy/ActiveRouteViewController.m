@@ -94,14 +94,14 @@
                 self.alreadyConstructed = true;
                 self.regionIndex = 0;
                 for (int i=0; i<3; i++)
-                    [self registerRegionfromIndex:i];
+                    [self registerRegionFromIndex:i];
             }
         }
     }];
     return directions;
 }
 
--(void)registerRegionfromIndex:(int)index {
+-(void)registerRegionFromIndex:(int)index {
     NSString* ident = [[NSString alloc] initWithFormat:@"%d", index];
     CLLocationCoordinate2D coordinate;
     [self.regionCenters[index] getValue:&coordinate];
@@ -137,7 +137,7 @@
             int regIdent = [region.identifier intValue]; // TODO test to make sure this works
             // Start monitoring the new set
             int newIndex = regIdent + 3; // New region is "Two regions" ahead of
-            [self registerRegionfromIndex:newIndex];
+            [self registerRegionFromIndex:newIndex];
             // Stop monitoring the oldest
             CLRegion *deletedRegion = NULL; //TODO make deleted region - is in monitoredRegions NSSet
             [manager stopMonitoringForRegion:deletedRegion];

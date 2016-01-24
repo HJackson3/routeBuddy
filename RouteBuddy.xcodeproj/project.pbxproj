@@ -20,12 +20,12 @@
 		097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097402451C513F490004FB2B /* ActiveRouteViewController.m */; };
 		098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100201C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m */; };
 		098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 098100221C4D174E00E9D221 /* EmergencyContact.m */; };
+		099FE4411C54F30900DA04F3 /* DestinationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68831C4E956600F3802B /* DestinationListViewController.m */; };
+		099FE4421C54F30D00DA04F3 /* DestinationFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68861C4E957500F3802B /* DestinationFormViewController.m */; };
+		099FE4431C54F31000DA04F3 /* LocationSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */; };
+		099FE4441C54F31500DA04F3 /* ManagedObjectContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */; };
+		099FE4451C54F31E00DA04F3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD687A1C4E7DC800F3802B /* HomeViewController.m */; };
 		09BD68781C4E7CA400F3802B /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68761C4E7CA400F3802B /* Destination.m */; };
-		09BD687B1C4E7DC800F3802B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD687A1C4E7DC800F3802B /* HomeViewController.m */; };
-		09BD68811C4E802300F3802B /* ManagedObjectContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */; };
-		09BD68841C4E956600F3802B /* DestinationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68831C4E956600F3802B /* DestinationListViewController.m */; };
-		09BD68871C4E957500F3802B /* DestinationFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68861C4E957500F3802B /* DestinationFormViewController.m */; };
-		09BD688A1C4E9A5200F3802B /* LocationSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */; };
 		09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BD688B1C4E9FE400F3802B /* MapKit.framework */; };
 		09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A71C53CB9100584A93 /* AVFoundation.framework */; };
 		09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A91C53CB9700584A93 /* AVKit.framework */; };
@@ -185,7 +185,6 @@
 			children = (
 				093711C81C4BC62A00624551 /* RouteBuddyTests.m */,
 				093711CA1C4BC62A00624551 /* Info.plist */,
-				4AEA967F1C4E820100697ED8 /* EmergencyContactTests.m */,
 			);
 			path = RouteBuddyTests;
 			sourceTree = "<group>";
@@ -370,20 +369,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				099FE4451C54F31E00DA04F3 /* HomeViewController.m in Sources */,
+				099FE4441C54F31500DA04F3 /* ManagedObjectContextViewController.m in Sources */,
+				099FE4431C54F31000DA04F3 /* LocationSelectViewController.m in Sources */,
+				099FE4421C54F30D00DA04F3 /* DestinationFormViewController.m in Sources */,
+				099FE4411C54F30900DA04F3 /* DestinationListViewController.m in Sources */,
 				09EE70B01C5412FB00584A93 /* Destination+CoreDataProperties.m in Sources */,
 				093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */,
 				097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
-				4AEA968C1C4FC23600697ED8 /* DestinationListViewController.m in Sources */,
-				4AEA96891C4FC23600697ED8 /* Destination.m in Sources */,
 				093711AD1C4BC62A00624551 /* AppDelegate.m in Sources */,
 				09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */,
 				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
 				098100231C4D174E00E9D221 /* EmergencyContact+CoreDataProperties.m in Sources */,
-				4AEA968B1C4FC23600697ED8 /* DestinationFormViewController.m in Sources */,
-				4AEA968A1C4FC23600697ED8 /* Destination+CoreDataProperties.m in Sources */,
 				093711B01C4BC62A00624551 /* RouteBuddy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,8 +392,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AEA96801C4E820100697ED8 /* EmergencyContactTests.m in Sources */,
-				4AEA967E1C4E81D400697ED8 /* EmergencyContact.m in Sources */,
 				093711C91C4BC62A00624551 /* RouteBuddyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteBuddy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.sheffield.RouteBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -539,6 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteBuddy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.sheffield.RouteBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

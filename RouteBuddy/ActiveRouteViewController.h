@@ -30,8 +30,6 @@
 
 -(MKDirections*)constructRouteTo: (CLLocationCoordinate2D) to;
 
--(void) makeRegionForLocationManager: (CLLocationManager *) manager fromIndex: (int) index;
-
-
+-(void) registerRegionFromIndex: (int) index;
 
 @end
