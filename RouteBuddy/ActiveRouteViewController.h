@@ -18,9 +18,11 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *destinationLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *destinationImage;
+
 @property (strong, retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKPointAnnotation *pin;
 @property (strong, nonatomic) NSMutableArray *regionCenters;
+@property (strong) UILocalNotification* notification;
 @property (atomic) int regionIndex;
 @property BOOL alreadyConstructed;
 
