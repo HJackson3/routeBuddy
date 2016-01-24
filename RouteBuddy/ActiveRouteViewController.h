@@ -21,9 +21,10 @@
 
 @property (strong, retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKPointAnnotation *pin;
-@property (strong, nonatomic) NSMutableArray *regionCenters;
+@property (strong, nonatomic) NSMutableArray *regions;
+@property (strong, nonatomic) NSMutableArray *monitoredRegions;
 @property (strong) UILocalNotification* notification;
-@property (atomic) int regionIndex;
+@property (atomic) int currentRegionIndex;
 @property BOOL alreadyConstructed;
 
 - (void)dropPinAtPoint:(CLLocationCoordinate2D) point withLabel:(NSString*) label;
@@ -32,8 +33,12 @@
 
 -(MKDirections*)constructRouteTo: (CLLocationCoordinate2D) to;
 
--(void) registerRegionFromIndex: (int) index;
+-(void)pushRegionFromIndex: (int) index;
+
+-(void)popRegionAtIndex: (int) index;
 
 -(void) makeNotificationWithTitle: (NSString *) title withBody: (NSString *) body andDisplayAfterTime: (int) seconds;
+
+-(void) checkRouteWithUserLocation: (CLLocationCoordinate2D) location;
 
 @end
