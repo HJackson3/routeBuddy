@@ -17,14 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the update button target
     self.updateButton.target = self;
+    
+    // Capitalise first letter of word
+    self.nameField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     
     // Update the user interface for the detail item.
     if (self.destination) {
         self.nameField.text = [[self.destination valueForKey:@"name"] description];
-        self.coordinate = CLLocationCoordinate2DMake(
-                                                     [(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],
-                                                     [(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
+        self.coordinate = CLLocationCoordinate2DMake([(NSNumber*)[self.destination valueForKey:@"xLocation"] doubleValue],[(NSNumber*)[self.destination valueForKey:@"yLocation"] doubleValue]);
         self.imageView.image = [UIImage imageWithData:self.destination.image];
         self.titleBar.title = @"Edit Destination";
         self.updateButton.action = @selector(updateDestination:);
@@ -35,10 +37,6 @@
         self.updateButton.action = @selector(insertNewObject:);
         [self clearFields];
     }
-    
-    // Disable photo button if no camera available
-    //if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
-        //[self.photoButton setEnabled:false];
     
     // Dismiss text fields on tap
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboards)];

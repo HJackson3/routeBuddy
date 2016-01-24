@@ -25,6 +25,8 @@
 		099FE4441C54F31500DA04F3 /* ManagedObjectContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */; };
 		099FE4451C54F31E00DA04F3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD687A1C4E7DC800F3802B /* HomeViewController.m */; };
 		099FE4481C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 099FE4471C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m */; };
+		099FE44B1C553C3B00DA04F3 /* EmergencyCallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099FE44A1C553C3B00DA04F3 /* EmergencyCallTableViewCell.m */; };
+		099FE44F1C553D6800DA04F3 /* EmergencyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099FE44E1C553D6800DA04F3 /* EmergencyCallViewController.m */; };
 		09BD68781C4E7CA400F3802B /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68761C4E7CA400F3802B /* Destination.m */; };
 		09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BD688B1C4E9FE400F3802B /* MapKit.framework */; };
 		09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A71C53CB9100584A93 /* AVFoundation.framework */; };
@@ -76,6 +78,10 @@
 		098100221C4D174E00E9D221 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
 		099FE4461C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmergencyContact+CoreDataProperties.h"; sourceTree = "<group>"; };
 		099FE4471C55040B00DA04F3 /* EmergencyContact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EmergencyContact+CoreDataProperties.m"; sourceTree = "<group>"; };
+		099FE4491C553C3B00DA04F3 /* EmergencyCallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyCallTableViewCell.h; sourceTree = "<group>"; };
+		099FE44A1C553C3B00DA04F3 /* EmergencyCallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyCallTableViewCell.m; sourceTree = "<group>"; };
+		099FE44D1C553D6800DA04F3 /* EmergencyCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyCallViewController.h; sourceTree = "<group>"; };
+		099FE44E1C553D6800DA04F3 /* EmergencyCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyCallViewController.m; sourceTree = "<group>"; };
 		09BD68751C4E7CA400F3802B /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
 		09BD68761C4E7CA400F3802B /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
 		09BD68791C4E7DC800F3802B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		093711A71C4BC62900624551 /* RouteBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				099FE44C1C553C7F00DA04F3 /* Emergency Calls */,
 				097402471C513F580004FB2B /* Active Route */,
 				09BD68721C4E7BEB00F3802B /* Destinations */,
 				0981001E1C4D16C400E9D221 /* Emergency Contacts */,
@@ -220,6 +227,17 @@
 				093711B51C4BC62A00624551 /* EmergencyContactFormViewController.m */,
 			);
 			name = "Emergency Contacts";
+			sourceTree = "<group>";
+		};
+		099FE44C1C553C7F00DA04F3 /* Emergency Calls */ = {
+			isa = PBXGroup;
+			children = (
+				099FE4491C553C3B00DA04F3 /* EmergencyCallTableViewCell.h */,
+				099FE44A1C553C3B00DA04F3 /* EmergencyCallTableViewCell.m */,
+				099FE44D1C553D6800DA04F3 /* EmergencyCallViewController.h */,
+				099FE44E1C553D6800DA04F3 /* EmergencyCallViewController.m */,
+			);
+			name = "Emergency Calls";
 			sourceTree = "<group>";
 		};
 		09BD68721C4E7BEB00F3802B /* Destinations */ = {
@@ -381,10 +399,12 @@
 				097402461C513F490004FB2B /* ActiveRouteViewController.m in Sources */,
 				093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */,
 				093711AD1C4BC62A00624551 /* AppDelegate.m in Sources */,
+				099FE44B1C553C3B00DA04F3 /* EmergencyCallTableViewCell.m in Sources */,
 				09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */,
 				09BD68781C4E7CA400F3802B /* Destination.m in Sources */,
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
+				099FE44F1C553D6800DA04F3 /* EmergencyCallViewController.m in Sources */,
 				093711B01C4BC62A00624551 /* RouteBuddy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

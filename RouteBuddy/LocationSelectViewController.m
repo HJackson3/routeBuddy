@@ -42,6 +42,7 @@
 
 -(void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation*)userLocation {
     if (self.coordinate.latitude == 0 && self.coordinate.longitude == 0) {
+        [self.locationManager stopUpdatingLocation];
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([userLocation location].coordinate, 2000, 2000);
         [mapView setRegion:region animated:YES];
     }

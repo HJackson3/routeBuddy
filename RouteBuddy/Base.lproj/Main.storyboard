@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S7k-eS-PCo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S7k-eS-PCo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -7,6 +7,80 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Call Contact-->
+        <scene sceneID="Xrk-pS-ivb">
+            <objects>
+                <tableViewController id="gy2-8g-TeI" customClass="EmergencyCallViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="y4J-1y-aIE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="110" id="HFu-1D-Hlu" customClass="EmergencyCallTableViewCell">
+                                <rect key="frame" x="0.0" y="122" width="600" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HFu-1D-Hlu" id="Xl7-6m-Wvo">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="109"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-CS-hFd">
+                                            <rect key="frame" x="10" y="5" width="580" height="99"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kH7-m2-OnI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="vrK-TM-SmY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xJ-7O-dhl">
+                                                    <rect key="frame" x="110" y="0.0" width="470" height="99"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0xJ-7O-dhl" secondAttribute="trailing" id="5j8-w2-S5E"/>
+                                                <constraint firstItem="0xJ-7O-dhl" firstAttribute="top" secondItem="Cvf-CS-hFd" secondAttribute="top" id="9GF-4c-cQr"/>
+                                                <constraint firstItem="kH7-m2-OnI" firstAttribute="leading" secondItem="Cvf-CS-hFd" secondAttribute="leading" id="Bj8-uD-lze"/>
+                                                <constraint firstItem="kH7-m2-OnI" firstAttribute="top" secondItem="Cvf-CS-hFd" secondAttribute="top" id="CtH-Ka-FuE"/>
+                                                <constraint firstAttribute="bottom" secondItem="kH7-m2-OnI" secondAttribute="bottom" id="PLm-lw-ilB"/>
+                                                <constraint firstItem="0xJ-7O-dhl" firstAttribute="leading" secondItem="kH7-m2-OnI" secondAttribute="trailing" constant="10" id="Ppf-SK-gZ8"/>
+                                                <constraint firstAttribute="bottom" secondItem="0xJ-7O-dhl" secondAttribute="bottom" id="TZN-VT-xcP"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Cvf-CS-hFd" secondAttribute="bottom" constant="5" id="2A2-C1-gOt"/>
+                                        <constraint firstItem="Cvf-CS-hFd" firstAttribute="leading" secondItem="Xl7-6m-Wvo" secondAttribute="leading" constant="10" id="CdZ-Js-CZR"/>
+                                        <constraint firstAttribute="trailing" secondItem="Cvf-CS-hFd" secondAttribute="trailing" constant="10" id="Qaz-yn-AHJ"/>
+                                        <constraint firstItem="Cvf-CS-hFd" firstAttribute="top" secondItem="Xl7-6m-Wvo" secondAttribute="top" constant="5" id="fTL-bg-0vE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contactImage" destination="kH7-m2-OnI" id="bYn-tr-6xv"/>
+                                    <outlet property="contactNameLabel" destination="0xJ-7O-dhl" id="WW9-3H-tsj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gy2-8g-TeI" id="Fkh-wo-gNW"/>
+                            <outlet property="delegate" destination="gy2-8g-TeI" id="xg7-Fo-cwG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Call Contact" prompt="Who would you like to call?" id="QIS-kW-6z0">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="bLP-FP-gUD" userLabel="Cancel Button">
+                            <connections>
+                                <action selector="back:" destination="gy2-8g-TeI" id="fhj-rP-Frh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsP-RB-6vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2233" y="129"/>
+        </scene>
         <!--Route Buddy-->
         <scene sceneID="rzm-5Y-reM">
             <objects>
@@ -16,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="EZY-Xl-tEu" customClass="HomeViewDestinationCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="110" id="EZY-Xl-tEu" customClass="HomeViewDestinationCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EZY-Xl-tEu" id="A4p-7M-vHW">
@@ -26,18 +100,18 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-Qy-F8G">
                                             <rect key="frame" x="10" y="5" width="580" height="99"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWv-if-ItE">
+                                                    <rect key="frame" x="100" y="0.0" width="470" height="99"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="yvb-Wl-gMW">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Lhk-gw-3XK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWv-if-ItE">
-                                                    <rect key="frame" x="110" y="0.0" width="460" height="99"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -47,7 +121,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="ZWv-if-ItE" secondAttribute="bottom" id="Jjg-cP-qIU"/>
                                                 <constraint firstAttribute="bottom" secondItem="yvb-Wl-gMW" secondAttribute="bottom" id="WwB-vT-AIW"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZWv-if-ItE" secondAttribute="trailing" constant="10" id="XYX-Ov-QIH"/>
-                                                <constraint firstItem="ZWv-if-ItE" firstAttribute="leading" secondItem="yvb-Wl-gMW" secondAttribute="trailing" constant="10" id="eBz-hB-a94"/>
+                                                <constraint firstItem="ZWv-if-ItE" firstAttribute="leading" secondItem="yvb-Wl-gMW" secondAttribute="trailing" id="eBz-hB-a94"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -232,6 +306,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="p4n-ys-iQL" kind="relationship" relationship="rootViewController" id="rbZ-Oy-uI7"/>
+                        <segue destination="gy2-8g-TeI" kind="show" identifier="callContact" id="8OZ-nO-YAK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Uj-Hz-LK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,14 +479,14 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Emergency Contact" id="mOI-FS-AaM">
-                        <barButtonItem key="leftBarButtonItem" title="Update" id="fcN-65-LIN" userLabel="Update Button">
-                            <connections>
-                                <action selector="updateEmergencyContact:" destination="JEX-9P-axG" id="OMC-0H-Vec"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="cZT-hD-rMu" userLabel="Cancel Button">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cZT-hD-rMu" userLabel="Cancel Button">
                             <connections>
                                 <action selector="back:" destination="JEX-9P-axG" id="FkZ-zN-mXt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="fcN-65-LIN" userLabel="Update Button">
+                            <connections>
+                                <action selector="updateEmergencyContact:" destination="JEX-9P-axG" id="OMC-0H-Vec"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -638,14 +713,14 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Destination" id="xh8-Gf-4xn">
-                        <barButtonItem key="leftBarButtonItem" title="Update" id="oGc-wi-bYZ" userLabel="Update Button">
-                            <connections>
-                                <action selector="updateEmergencyContact:" destination="rmk-h6-3fh" id="usG-94-Mcp"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="nwk-yV-uWK" userLabel="Cancel Button">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nwk-yV-uWK" userLabel="Cancel Button">
                             <connections>
                                 <action selector="back:" destination="rmk-h6-3fh" id="1gB-0M-REW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="oGc-wi-bYZ" userLabel="Update Button">
+                            <connections>
+                                <action selector="updateEmergencyContact:" destination="rmk-h6-3fh" id="usG-94-Mcp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -742,14 +817,14 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Select a Location" id="gqw-ji-NOb">
-                        <barButtonItem key="leftBarButtonItem" title="Select" id="f4D-75-I44" userLabel="Select Button">
-                            <connections>
-                                <action selector="selectCurrentPinLocation:" destination="Dz9-53-xwu" id="M8V-h1-YZE"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="nld-gN-HqC" userLabel="Cancel Button">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nld-gN-HqC" userLabel="Cancel Button">
                             <connections>
                                 <action selector="back:" destination="Dz9-53-xwu" id="71i-aj-d5Q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Select" id="f4D-75-I44" userLabel="Select Button">
+                            <connections>
+                                <action selector="selectCurrentPinLocation:" destination="Dz9-53-xwu" id="M8V-h1-YZE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

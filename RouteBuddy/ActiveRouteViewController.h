@@ -34,4 +34,6 @@
 
 -(void) registerRegionFromIndex: (int) index;
 
+-(void) makeNotificationWithTitle: (NSString *) title withBody: (NSString *) body andDisplayAfterTime: (int) seconds;
+
 @end

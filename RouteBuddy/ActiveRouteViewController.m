@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [self organiseLocationManager];
     self.mapView.delegate = self;
     self.destinationLabel.text = self.destination.name;
@@ -55,22 +56,24 @@
 }
 
 -(void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation*)userLocation {
-    MKMapPoint p1 = MKMapPointForCoordinate([userLocation location].coordinate);
-    MKMapPoint p2 = MKMapPointForCoordinate([self.destination getCoordinate]);
-    double x = MIN(p1.x, p2.x);
-    double y = MIN(p1.y, p2.y);
-    double width = MAX(p1.x, p2.x) - x;
-    double height = MAX(p1.y, p2.y) - y;
-    double padding = 4.0;
-    x = x - (width / (padding * 2.0));
-    y = y - (height / (padding * 2.0));
-    width = width + (width / padding);
-    height = height + (height / padding);
-    MKMapRect rect = MKMapRectMake(x, y, width, height);
-    MKCoordinateRegion region = MKCoordinateRegionForMapRect(rect);
-    [mapView setRegion:region animated:YES];
-    if(!self.alreadyConstructed)
+    if(!self.alreadyConstructed) {
+        MKMapPoint p1 = MKMapPointForCoordinate([userLocation location].coordinate);
+        MKMapPoint p2 = MKMapPointForCoordinate([self.destination getCoordinate]);
+        double x = MIN(p1.x, p2.x);
+        double y = MIN(p1.y, p2.y);
+        double width = MAX(p1.x, p2.x) - x;
+        double height = MAX(p1.y, p2.y) - y;
+        double padding = 4.0;
+        x = x - (width / (padding * 2.0));
+        y = y - (height / (padding * 2.0));
+        width = width + (width / padding);
+        height = height + (height / padding);
+        MKMapRect rect = MKMapRectMake(x, y, width, height);
+        MKCoordinateRegion region = MKCoordinateRegionForMapRect(rect);
+        [mapView setRegion:region animated:YES];
+        self.alreadyConstructed = true;
         [self constructRouteTo:[self.destination getCoordinate]];
+    }
 }
 
 -(MKDirections *)constructRouteTo:(CLLocationCoordinate2D)to {
@@ -91,7 +94,6 @@
                     NSValue *value = [NSValue value:&coord withObjCType:@encode(CLLocationCoordinate2D)];
                     [self.regionCenters insertObject:value atIndex: i];
                 }
-                self.alreadyConstructed = true;
                 self.regionIndex = 0;
                 for (int i=0; i<3; i++)
                     [self registerRegionFromIndex:i];
@@ -105,7 +107,7 @@
     NSString* ident = [[NSString alloc] initWithFormat:@"%d", index];
     CLLocationCoordinate2D coordinate;
     [self.regionCenters[index] getValue:&coordinate];
-    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:100 identifier:ident];
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:20 identifier:ident];
     [self.locationManager startMonitoringForRegion:region];
 }
 
@@ -121,7 +123,6 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    
     // Check if in any other of locationManagers regions
     BOOL inAnotherRegion = false;
     for (CLCircularRegion* region in [manager monitoredRegions]) {
@@ -131,11 +132,9 @@
     }
     if (!inAnotherRegion) {
         // Notification for the user, prompt if they would like to call - remind them where they are headed.
-        self.notification = [[UILocalNotification alloc] init];
-        self.notification.alertTitle = nil;
-        self.notification.alertBody = nil;
-        self.notification.alertAction = nil;
-        self.notification.fireDate = nil;
+        if (!self.notification) {
+            [self makeNotificationWithTitle:@"Not on route" withBody:@"Are you lost? Would you like to call someone?" andDisplayAfterTime:5];
+        }
     } else {
         // All is well, pop lowest numbered region, add next region from index
         if (![region.identifier isEqualToString:@"0"]) {
@@ -162,8 +161,19 @@
 -(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     // This will kill any UILocalNotifications that exist
     if (self.notification) {
+        [[UIApplication sharedApplication] cancelLocalNotification:self.notification];
         self.notification = nil;
     }
+}
+
+-(void)makeNotificationWithTitle:(NSString *)title withBody:(NSString *)body andDisplayAfterTime:(int)seconds {
+    self.notification = [[UILocalNotification alloc] init];
+    self.notification.alertTitle = title;
+    self.notification.alertBody = body;
+    self.notification.timeZone = [NSTimeZone defaultTimeZone];
+    self.notification.alertAction = nil;
+    self.notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
+    [[UIApplication sharedApplication] scheduleLocalNotification:self.notification];
 }
 
 @end
