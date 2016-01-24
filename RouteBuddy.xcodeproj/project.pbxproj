@@ -13,7 +13,6 @@
 		093711B31C4BC62A00624551 /* EmergencyContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711B21C4BC62A00624551 /* EmergencyContactListViewController.m */; };
 		093711B61C4BC62A00624551 /* EmergencyContactFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711B51C4BC62A00624551 /* EmergencyContactFormViewController.m */; };
 		093711B91C4BC62A00624551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093711B71C4BC62A00624551 /* Main.storyboard */; };
-		093711BB1C4BC62A00624551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093711BA1C4BC62A00624551 /* Assets.xcassets */; };
 		093711BE1C4BC62A00624551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 093711BC1C4BC62A00624551 /* LaunchScreen.storyboard */; };
 		093711C91C4BC62A00624551 /* RouteBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711C81C4BC62A00624551 /* RouteBuddyTests.m */; };
 		093711D41C4BC62A00624551 /* RouteBuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 093711D31C4BC62A00624551 /* RouteBuddyUITests.m */; };
@@ -31,6 +30,7 @@
 		09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A91C53CB9700584A93 /* AVKit.framework */; };
 		09EE70B01C5412FB00584A93 /* Destination+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EE70AF1C5412FB00584A93 /* Destination+CoreDataProperties.m */; };
 		09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */; };
+		4A8A57251C5518F300AD719D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093711BA1C4BC62A00624551 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,8 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8A57251C5518F300AD719D /* Assets.xcassets in Resources */,
 				093711BE1C4BC62A00624551 /* LaunchScreen.storyboard in Resources */,
-				093711BB1C4BC62A00624551 /* Assets.xcassets in Resources */,
 				093711B91C4BC62A00624551 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				INFOPLIST_FILE = RouteBuddy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -543,6 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				INFOPLIST_FILE = RouteBuddy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
