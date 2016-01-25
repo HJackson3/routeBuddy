@@ -21,6 +21,4 @@
 
 -(void)selectDestination: (Destination*) destination;
 
--(void)performAlertAboutEmergencyContacts;
-
 @end

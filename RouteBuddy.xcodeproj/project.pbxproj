@@ -34,6 +34,7 @@
 		09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A91C53CB9700584A93 /* AVKit.framework */; };
 		09EE70B01C5412FB00584A93 /* Destination+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EE70AF1C5412FB00584A93 /* Destination+CoreDataProperties.m */; };
 		09FF36DA1C51C9AC00A5F91E /* HomeViewDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */; };
+		4A359B021C564B5500D2B3DC /* AddEmergencyContactsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A359B011C564B5500D2B3DC /* AddEmergencyContactsTests.m */; };
 		4A8A57251C5518F300AD719D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 093711BA1C4BC62A00624551 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		09EE70AF1C5412FB00584A93 /* Destination+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Destination+CoreDataProperties.m"; sourceTree = "<group>"; };
 		09FF36D81C51C9AC00A5F91E /* HomeViewDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewDestinationCell.h; sourceTree = "<group>"; };
 		09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewDestinationCell.m; sourceTree = "<group>"; };
+		4A359B011C564B5500D2B3DC /* AddEmergencyContactsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmergencyContactsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
