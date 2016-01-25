@@ -16,13 +16,6 @@
 
 - (void)viewDidLoad { // Might want to edit this so you don't have the situation where it tells you about the destinations but doesn't tell you about the ECs until second start up
     [super viewDidLoad];
-    if ([[self.fetchedResultsController fetchedObjects] count] < 1 ) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No destinations" message:@"You currently have no destinations set in your app. You can do this through the settings page." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    } else if ([[self.emergencyContactsfetchedResultsController fetchedObjects] count] < 1 ) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No emergency contacts" message:@"You currently have no emergency contacts set in your app. You can do this through the settings page." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,6 +25,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if ([[self.fetchedResultsController fetchedObjects] count] < 1 ) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No destinations" message:@"You currently have no destinations set in your app. You can do this through the settings page." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 -(void)selectDestination:(Destination *)destination {
@@ -130,68 +127,37 @@
     return _fetchedResultsController;
 }
 
-- (NSFetchedResultsController *)emergencyContactsFetchedResultsController
-{
-    if (_emergencyContactsfetchedResultsController != nil) {
-        return _emergencyContactsfetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EmergencyContact" inManagedObjectContext:self.emergencyContactsmanagedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
-    
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.emergencyContactsmanagedObjectContext sectionNameKeyPath:nil cacheName:@"EmergencyContacts"];
-    aFetchedResultsController.delegate = self;
-    self.emergencyContactsfetchedResultsController = aFetchedResultsController;
-    
-    NSError *error = nil;
-    if (![self.emergencyContactsfetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _emergencyContactsfetchedResultsController;
-}
-
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView beginUpdates];
+    if (controller == self.fetchedResultsController)
+        [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        default:
-            return;
-    }
+    if (controller == self.fetchedResultsController)
+        switch(type) {
+            case NSFetchedResultsChangeInsert:
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeDelete:
+                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            default:
+                return;
+        }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
+    if (controller != self.fetchedResultsController)
+        return;
+    
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -216,7 +182,8 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+    if (controller == self.fetchedResultsController)
+        [self.tableView endUpdates];
 }
 
 

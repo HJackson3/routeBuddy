@@ -28,6 +28,7 @@
 		099FE44F1C553D6800DA04F3 /* EmergencyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099FE44E1C553D6800DA04F3 /* EmergencyCallViewController.m */; };
 		09BD68781C4E7CA400F3802B /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD68761C4E7CA400F3802B /* Destination.m */; };
 		09BD688C1C4E9FE400F3802B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BD688B1C4E9FE400F3802B /* MapKit.framework */; };
+		09CEB8261C5645370005705E /* CarerSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CEB8251C5645370005705E /* CarerSettingsViewController.m */; };
 		09EE70A81C53CB9100584A93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A71C53CB9100584A93 /* AVFoundation.framework */; };
 		09EE70AA1C53CB9700584A93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EE70A91C53CB9700584A93 /* AVKit.framework */; };
 		09EE70B01C5412FB00584A93 /* Destination+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EE70AF1C5412FB00584A93 /* Destination+CoreDataProperties.m */; };
@@ -95,6 +96,8 @@
 		09BD68881C4E9A5200F3802B /* LocationSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSelectViewController.h; sourceTree = "<group>"; };
 		09BD68891C4E9A5200F3802B /* LocationSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSelectViewController.m; sourceTree = "<group>"; };
 		09BD688B1C4E9FE400F3802B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		09CEB8241C5645370005705E /* CarerSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarerSettingsViewController.h; sourceTree = "<group>"; };
+		09CEB8251C5645370005705E /* CarerSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarerSettingsViewController.m; sourceTree = "<group>"; };
 		09EE70A71C53CB9100584A93 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		09EE70A91C53CB9700584A93 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		09EE70AE1C5412FB00584A93 /* Destination+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Destination+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				09BD687A1C4E7DC800F3802B /* HomeViewController.m */,
 				09FF36D81C51C9AC00A5F91E /* HomeViewDestinationCell.h */,
 				09FF36D91C51C9AC00A5F91E /* HomeViewDestinationCell.m */,
+				09CEB8241C5645370005705E /* CarerSettingsViewController.h */,
+				09CEB8251C5645370005705E /* CarerSettingsViewController.m */,
 				09BD687F1C4E802300F3802B /* ManagedObjectContextViewController.h */,
 				09BD68801C4E802300F3802B /* ManagedObjectContextViewController.m */,
 				093711B71C4BC62A00624551 /* Main.storyboard */,
@@ -405,6 +410,7 @@
 				093711AA1C4BC62900624551 /* main.m in Sources */,
 				098100241C4D174E00E9D221 /* EmergencyContact.m in Sources */,
 				099FE44F1C553D6800DA04F3 /* EmergencyCallViewController.m in Sources */,
+				09CEB8261C5645370005705E /* CarerSettingsViewController.m in Sources */,
 				093711B01C4BC62A00624551 /* RouteBuddy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
