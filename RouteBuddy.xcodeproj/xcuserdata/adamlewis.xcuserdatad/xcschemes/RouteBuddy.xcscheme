@@ -47,6 +47,11 @@
                BlueprintName = "RouteBuddyUITests"
                ReferencedContainer = "container:RouteBuddy.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DestinationsTests/testExample">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
